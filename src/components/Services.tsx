@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
 import { Card } from "@/components/ui/card";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,

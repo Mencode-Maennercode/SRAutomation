@@ -13,7 +13,7 @@ export default function CountUp({ value, suffix = "" }: { value: string, suffix?
   useEffect(() => {
     if (!isInView) return;
 
-    let start = 0;
+    const start = 0;
     const end = target;
     const duration = 2000;
     let startTime: number | null = null;

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { feedback } from "@/lib/data";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import {
@@ -53,7 +52,7 @@ export default function Feedback() {
                       </div>
                       
                       <p className="text-lg italic leading-relaxed mb-10 text-zinc-400 line-clamp-6">
-                        "{item.comment}"
+                        &ldquo;{item.comment}&rdquo;
                       </p>
                     </div>
                     
