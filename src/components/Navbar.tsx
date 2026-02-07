@@ -14,13 +14,14 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass-dark m-4 rounded-lg"
     >
-      <div className="flex items-center">
+      <a href="#" className="flex items-center gap-3 group">
         <img 
           src="/SR_logo-1024x424.png" 
           alt="SR Automation" 
-          className="h-14 md:h-20 w-auto transition-all duration-500 hover:scale-105 drop-shadow-2xl" 
+          className="h-8 md:h-10 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl" 
         />
-      </div>
+        <span className="text-white font-bold text-lg md:text-xl tracking-tight">SR Automation</span>
+      </a>
 
       <div className="hidden md:flex items-center gap-8">
         {["Leistungen", "Projekte", "Über Uns"].map((item) => (
@@ -32,9 +33,11 @@ export default function Navbar() {
             {item}
           </a>
         ))}
-        <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/5">
-          KONTAKT
-        </Button>
+        <a href="#kontakt">
+          <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/5">
+            KONTAKT
+          </Button>
+        </a>
       </div>
 
       <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
@@ -57,7 +60,9 @@ export default function Navbar() {
               {item}
             </a>
           ))}
-          <Button className="w-full">KONTAKT</Button>
+          <a href="#kontakt" onClick={() => setIsOpen(false)}>
+            <Button className="w-full">KONTAKT</Button>
+          </a>
         </motion.div>
       )}
     </motion.nav>

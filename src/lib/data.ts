@@ -1,50 +1,82 @@
 export const services = [
   {
     id: "01",
-    title: "Steuerungsbau",
-    description: "Präzise Schaltanlagen und Steuerungskonzepte für komplexe Industrieanlagen seit 2012.",
+    title: "Planung & Automatisierung",
+    description: "Planung, Entwicklung und Automatisierung von Maschinen und Anlagen – zugeschnitten auf die Anforderungen der Direktvermarkter.",
     category: "ENGINEERING",
-    image: "https://picsum.photos/seed/steu/800/600?blur=2",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=600&fit=crop",
   },
   {
     id: "02",
-    title: "Anlagenbau",
-    description: "Individuelle Lösungen im Maschinenbau, von der Planung bis zur Inbetriebnahme.",
+    title: "Sondermaschinenbau & Steuerungsbau",
+    description: "Sondermaschinenbau, Steuerungsbau sowie Modernisierung von Prozess- und Produktionsanlagen.",
     category: "PRODUCTION",
-    image: "https://picsum.photos/seed/anla/800/600?blur=1",
+    image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&h=600&fit=crop",
   },
   {
     id: "03",
-    title: "Flaschenwaschanlagen",
-    description: "Tradition trifft Moderne: HT1 & HT2 Anlagen mit 30 Jahren Erfahrung vereint mit modernster Technik.",
-    category: "SPECIALIZED",
-    image: "https://picsum.photos/seed/wash/800/600",
+    title: "DGUV V3 Prüfung",
+    description: "Die DGUV V3 (ehem. BGV A3) – gesetzlich vorgeschriebene regelmäßige Überprüfung von elektrischen Betriebsmitteln und Anlagen nach VDE und Arbeitssicherheitsgesetz.",
+    category: "SAFETY",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop",
   },
   {
     id: "04",
-    title: "Softwareentwicklung",
-    description: "SPS-Programmierung und Visualisierung für intuitive Maschinenbedienung.",
-    category: "DIGITAL",
-    image: "https://picsum.photos/seed/soft/800/600?blur=3",
+    title: "Montage & Inbetriebnahme",
+    description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen – zuverlässig und termingerecht.",
+    category: "SERVICE",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop",
   }
 ];
 
 export const projects = [
   {
-    title: "HT1 Serie",
+    title: "Flaschenwaschanlage & Etikettenlöser",
     client: "Getränkeindustrie",
-    year: "2024",
-    description: "Vollautomatische Flaschenwaschanlage mit optimiertem Ressourcenverbrauch.",
-    tags: ["Automatisierung", "Nachhaltigkeit"],
-    image: "https://picsum.photos/seed/p1/600/400"
+    year: "2023",
+    description: "Vollautomatische Flaschenwaschanlage mit integriertem Etikettenlöser für die Getränkeindustrie. Moderne Steuerungstechnik sorgt für maximale Effizienz und Ressourcenschonung im laufenden Betrieb.",
+    tags: ["Automatisierung", "Anlagenbau", "Steuerungstechnik"],
+    image: "https://images.unsplash.com/photo-1504222490345-c075b6008014?w=800&h=600&fit=crop"
   },
   {
-    title: "Smart Control System",
-    client: "Maschinenbau Nord",
+    title: "Wannenpasteur",
+    client: "Lebensmittelproduktion",
     year: "2023",
-    description: "Zentralisierte Steuerungseinheit für modulare Produktionsstraßen.",
-    tags: ["SPS", "UI/UX"],
-    image: "https://picsum.photos/seed/p2/600/400"
+    description: "Touch-Screen-Steuerung mit Rezepturverwaltung für Ihre Produkte. Individuelle Pasteurisierungsprogramme gewährleisten höchste Produktqualität bei optimaler Energieeffizienz.",
+    tags: ["Touch-Screen", "Rezepturverwaltung", "SPS"],
+    image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Schaltschrankplanung & -bau",
+    client: "Industriekunden",
+    year: "2024",
+    description: "Professionelle Planung und Fertigung von Schaltschränken nach neuesten Normen und Standards. Von der Konzeption bis zur schlüsselfertigen Übergabe aus einer Hand.",
+    tags: ["Schaltschrankbau", "Planung", "Elektrotechnik"],
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Hof Fuhlreit",
+    client: "Direktvermarkter",
+    year: "2022",
+    description: "Maßgeschneiderte Automatisierungslösung für den landwirtschaftlichen Direktvermarkter Hof Fuhlreit. Moderne Steuerungstechnik für effiziente Produktionsabläufe.",
+    tags: ["Direktvermarktung", "Automatisierung"],
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Speetenhof",
+    client: "Direktvermarkter",
+    year: "2022",
+    description: "Individuelle Anlagen- und Steuerungslösungen für den Speetenhof. Integration modernster Sicherheitsstandards und benutzerfreundlicher Bedienoberflächen.",
+    tags: ["Anlagenbau", "Sicherheitstechnik"],
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Seebodenhof",
+    client: "Direktvermarkter",
+    year: "2021",
+    description: "Komplettlösung im Bereich Steuerungs- und Anlagenbau für den Seebodenhof. Von der Planung über die Installation bis hin zur Inbetriebnahme.",
+    tags: ["Komplettlösung", "Inbetriebnahme"],
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop"
   }
 ];
 

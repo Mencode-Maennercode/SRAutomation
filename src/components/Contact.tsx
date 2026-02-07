@@ -23,7 +23,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="technical-label">E-Mail</span>
-                  <p className="text-lg font-medium">info@srautomation.de</p>
+                  <a href="mailto:info@srautomation.de" className="text-lg font-medium hover:text-primary transition-colors">info@srautomation.de</a>
                 </div>
               </div>
               
@@ -33,7 +33,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="technical-label">Telefon</span>
-                  <p className="text-lg font-medium">+49 (0) 123 456789</p>
+                  <a href="tel:+4926419173331" className="text-lg font-medium hover:text-primary transition-colors">+49 (0) 2641 917 333 – 1</a>
                 </div>
               </div>
               
@@ -43,7 +43,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="technical-label">Standort</span>
-                  <p className="text-lg font-medium">Beispielstraße 123, 12345 Stadt, Deutschland</p>
+                  <p className="text-lg font-medium">Simmelsgartenstr. 14, 53501 Grafschaft</p>
                 </div>
               </div>
             </div>

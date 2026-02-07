@@ -110,8 +110,8 @@ export default function Hero() {
             {[
               { label: "PROJEKTE", value: "500", suffix: "+" },
               { label: "ERFAHRUNG", value: "30", suffix: "J" },
-              { label: "STANDORT", value: "DE", suffix: "" },
-              { label: "KUNDEN", value: "100", suffix: "%" },
+              { label: "STANDORT", value: "0", suffix: "" },
+              { label: "KUNDENZUFRIEDENHEIT", value: "100", suffix: "%" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -121,7 +121,9 @@ export default function Hero() {
                 className="flex flex-col items-center"
               >
                 <span className="text-2xl font-bold font-mono text-white">
-                  <CountUp value={stat.value} suffix={stat.suffix} />
+                  {stat.label === "STANDORT" ? "Weltweit" : (
+                    <CountUp value={stat.value} suffix={stat.suffix} />
+                  )}
                 </span>
                 <span className="technical-label">{stat.label}</span>
               </motion.div>
