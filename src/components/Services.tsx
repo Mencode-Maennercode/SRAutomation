@@ -50,14 +50,13 @@ export default function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[300px]">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              className={index === 2 ? "md:col-span-2 md:row-span-1" : ""}
             >
               <Dialog>
                 <DialogTrigger asChild>
@@ -74,13 +73,13 @@ export default function Services() {
                     <div className="relative z-10 p-8 h-full flex flex-col justify-between">
                       <div>
                         <span className="technical-label text-primary/80">{service.category} / {service.id}</span>
-                        <h3 className="text-2xl font-bold mt-2">{service.title}</h3>
-                      </div>
-                      
-                      <div className="flex items-end justify-between">
-                        <p className="text-sm text-muted-foreground max-w-[200px] leading-relaxed">
+                        <h3 className="text-2xl font-bold mt-1 mb-2">{service.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
                           {service.description}
                         </p>
+                      </div>
+                      
+                      <div className="flex items-end justify-end">
                         <motion.div 
                           className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors"
                         >

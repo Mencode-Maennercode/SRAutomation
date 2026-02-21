@@ -67,7 +67,7 @@ export default function Projects() {
                     </div>
                   </div>
                 </DialogTrigger>
-                <DialogContent className="glass-dark border-white/10 text-white max-w-4xl">
+                <DialogContent className="glass-dark border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hidden">
                   <DialogHeader>
                     <div className="flex items-center justify-between">
                       <span className="technical-label text-primary">{project.client} | {project.year}</span>

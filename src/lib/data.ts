@@ -1,10 +1,10 @@
 export const services = [
   {
     id: "01",
-    title: "Planung & Automatisierung",
-    description: "Planung, Entwicklung und Automatisierung von Maschinen und Anlagen – zugeschnitten auf die Anforderungen der Direktvermarkter.",
-    category: "ENGINEERING",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=600&fit=crop",
+    title: "Engineering",
+    description: "Planung, Entwicklung und Automatisierung von Maschinen und Anlagen.",
+    category: "Engineering",
+    image: "/Images/pexels-2157750954-34938429.jpg",
   },
   {
     id: "02",
@@ -15,15 +15,29 @@ export const services = [
   },
   {
     id: "03",
-    title: "DGUV V3 Prüfung",
-    description: "Die DGUV V3 (ehem. BGV A3) – gesetzlich vorgeschriebene regelmäßige Überprüfung von elektrischen Betriebsmitteln und Anlagen nach VDE und Arbeitssicherheitsgesetz.",
+    title: "DGUV V3 Prüfung & Sistema-Berechnung",
+    description: "Gesetzlich vorgeschriebene regelmäßige Überprüfung von elektrischen Betriebsmitteln und Anlagen nach VDE.",
     category: "SAFETY",
     image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop",
   },
   {
     id: "04",
+    title: "Schaltschrank-Bau",
+    description: "Professioneller Schaltschrank-Bau nach höchsten Qualitätsstandards.",
+    category: "PRODUCTION",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop",
+  },
+  {
+    id: "05",
+    title: "Erneuerbare Energien",
+    description: "Komplexe maßgeschneiderte Anlagen für nachhaltige Energielösungen.",
+    category: "ENERGY",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
+  },
+  {
+    id: "06",
     title: "Montage & Inbetriebnahme",
-    description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen – zuverlässig und termingerecht.",
+    description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen.",
     category: "SERVICE",
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop",
   }
@@ -81,28 +95,31 @@ export const projects = [
 ];
 
 export const feedback = [
-  { user: "Hausverwaltung Meyer", rating: 5, comment: "Hervorragende Arbeit beim Schaltanlagenbau. Zuverlässig, kompetent und termintreu.", date: "2024-11-12" },
-  { user: "Industriebau Schmidt", rating: 5, comment: "SR Automation hat unsere Erwartungen bei der SPS-Programmierung übertroffen. Sehr empfehlenswert.", date: "2024-09-05" },
-  { user: "Getränke Logistik GmbH", rating: 5, comment: "Die Wartung unserer HT2 Anlage verlief reibungslos. Top Service!", date: "2024-07-20" },
-  { user: "Bäckerei Müller", rating: 5, comment: "Schnelle Hilfe bei Steuerungsdefekt. Sehr kompetent.", date: "2024-06-15" },
-  { user: "Autohaus Weber", rating: 5, comment: "Professionelle Installation der Ladeinfrastruktur.", date: "2024-05-10" },
-  { user: "Metallbau Wagner", rating: 5, comment: "Top Beratung und Umsetzung im Anlagenbau.", date: "2024-04-22" },
-  { user: "Agrar GmbH", rating: 5, comment: "Zuverlässiger Partner für unsere Automatisierungstechnik.", date: "2024-03-30" },
-  { user: "Schreinerei Kunze", rating: 5, comment: "Saubere Arbeit und faire Preise.", date: "2024-02-14" },
-  { user: "Klinikum Süd", rating: 5, comment: "Pünktlich und fachlich auf höchstem Niveau.", date: "2024-01-05" },
-  { user: "Hotel am See", rating: 5, comment: "Sehr guter Service, jederzeit wieder.", date: "2023-12-18" },
-  { user: "Spedition Lang", rating: 5, comment: "Kompetente Lösung für unsere Lagerlogistik.", date: "2023-11-11" },
-  { user: "Brauhaus Alt", rating: 5, comment: "Hervorragende Wartung der Waschanlage.", date: "2023-10-05" },
-  { user: "Feinmechanik Otto", rating: 5, comment: "Präzision in der Ausführung. Sehr zufrieden.", date: "2023-09-12" },
-  { user: "Elektro-Fachmarkt", rating: 5, comment: "Gute Zusammenarbeit, kompetente Techniker.", date: "2023-08-20" },
-  { user: "Privatkunde K.", rating: 5, comment: "Freundlich und sehr hilfsbereit.", date: "2023-07-15" }
+  { rating: 5, comment: "Bei der freundlichen und kompetenten Beratung vor Ort wurde das Angebot passend auf meine Bedürfnisse abgestimmt. Vom Angebot bis zur Installation perfekte Abwicklung. Super freundliches Team auf der Baustelle. Sehr Fachkundig und hilfsbereit. Vom ersten Kontakt bis zum letzten Meter Kabelkanal wurde alles zu meiner vollsten Zufriedenheit abgewickelt. Ich kann S+R vorbehaltlos weiter empfehlen." },
+  { rating: 5, comment: "Der Kontakt und die Abwicklung des Auftrags war ausgezeichnet - es hat alles zu meiner vollsten Zufriedenheit geklappt" },
+  { rating: 5, comment: "Fa. SR Automation hat bei uns eine Wallbox installiert. Nach einer unkomplizierten Kontaktaufnahme hat uns Herr Ratnasingam ausführlich beraten und die Arbeiten kurzfristig, pünktlich und professionell durchgeführt. Das Ganze zu einem sehr fairen Preis. Wir sind sehr zufrieden mit der Arbeit und dem hervorragenden Service. Von uns eine ganz klare Empfehlung. Vielen Dank!" },
+  { rating: 5, comment: "Vor der Umsetzung habe ich eine fundierte Beratung erhalten, und das Angebot wurde exakt entsprechend den verwendeten Materialien und Preisen umgesetzt. Die Arbeit wurde innerhalb eines Tages abgeschlossen und der Arbeitsplatz wurde in einem einwandfreien Zustand hinterlassen" },
+  { rating: 5, comment: "Total freundlich zuverlässig und kompetent. Wallbox installiert und Preis eingehalten. Danke!" },
+  { rating: 5, comment: "SR Automation hat den Auftrag freundlich, professionell und meiner höchsten Zufriedenheit ausgeführt. Im Zuge der Kontaktaufnahme hat Herr R. sich bestens auf den Auftrag vorbereitet und notwendige Sicherungsschalter mitgebracht um den Smart Meter sofort installieren zu können. Ich kann die Zusammenarbeit mit SR Automation uneingeschränkt weiterempfehlen. Vielen Dank! :)" },
+  { rating: 5, comment: "Wallbox und PV Anlage mit Speicher . Komplette Neuverdrahtung in der Unterverteilung. Sehr kompetent in Beratung und Ausführung . Pünktliche Installation, schnelle und zuvorkommende Abwicklung. Freundliches und sauberes auftreten . Kostengünstige Lösungsvorschläge." },
+  { rating: 5, comment: "Installiert wurde eine PV Anlage inkl. Speicher und Notstromversorgung. Bei Angebotserstellung und Planung der Arbeiten gab es einen ständigen Austausch. Sonderwünsche wurden berücksichtigt und Eigenleistung im Rahmen meiner Möglichkeit akzeptiert. Wie bei jedem Projekt gab es ein, zwei Schwierigkeiten, die aber in Ruhe, mit Bedacht und professionell gelöst wurden. Ingesamt würde ich jederzeit wieder einen Auftrag vergeben." },
+  { rating: 5, comment: "Auch wenn es mal nicht direkt so funktioniert wie geplant, kann man sich drauf verlassen, dass das Projekt mit Erfolg zum Abschluss gebracht wird. Vielen Dank dafür" },
+  { rating: 5, comment: "Sehr kompetent. Absolut zu empfehlen." },
+  { rating: 5, comment: "Top Beratung vor Auftragserteilung und anschließender erster netter Kontakt. Zügige Terminvereinbarung und tolle Umsetzung des Projektes" },
+  { rating: 5, comment: "Von Anfang bis Ende kompetente Beratung, Ausarbeitung und Durchführung des Auftrages. Die Arbeiten wurden fachgerecht erledigt. Unerwartete Probleme wurden direkt behoben. Die Baustelle wurde sauber verlassen (hatte ich so noch nie, auch Danke dafür). Toller Service, tolle Arbeit! Vielen Dank" },
+  { rating: 5, comment: "Ich kann der Firma SR Automation nur Lob zollen. Eine mehr als perfekte Arbeit die termingerecht ausgeführt wurde. Alle erforderlichen Arbeiten wurden schnell, sauber und professionell ausgeführt. Die Beratung durch die Firma SR Automation war von hoher Kenntnis und großem Fachwissen. Die Kommunikation verlief während der Bauzeit der PV Anlage ebenfalls völlig problemlos. Wir waren während der Bauzeit in ständigem Kontakt. Wir sind froh das wir den Auftrag an die Firma SR Automation vergeben haben." },
+  { rating: 5, comment: "Alles ordentlich erledigt. Gerne wieder." }
 ];
 
 export const partners = [
-  { name: "Nestle", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Nestl%C3%A9_logo.svg" },
-  { name: "BMW", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" },
-  { name: "Mercedes", logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Benz_Logo_2010.svg" },
-  { name: "Heineken", logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Heineken_Logo.svg" },
-  { name: "Siemens", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg" },
-  { name: "Volkswagen", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Volkswagen_logo_2019.svg" }
+  { name: "Partner 1", logo: "/Images/f1.png" },
+  { name: "Partner 2", logo: "/Images/f2.png" },
+  { name: "Partner 3", logo: "/Images/f3.avif" },
+  { name: "Partner 4", logo: "/Images/f4.png" },
+  { name: "Partner 5", logo: "/Images/f5.png" },
+  { name: "Partner 6", logo: "/Images/f6.png" },
+  { name: "Partner 7", logo: "/Images/f7.png" },
+  { name: "Partner 8", logo: "/Images/f8.png" },
+  { name: "Partner 9", logo: "/Images/f9.jpg" },
+  { name: "Partner 10", logo: "/Images/f10.png" }
 ];

@@ -16,15 +16,15 @@ export default function Navbar() {
     >
       <a href="#" className="flex items-center gap-3 group">
         <img 
-          src="/SR_logo-1024x424.png" 
+          src="/Logo-rund.png" 
           alt="SR Automation" 
-          className="h-8 md:h-10 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl" 
+          className="h-10 md:h-12 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl" 
         />
         <span className="text-white font-bold text-lg md:text-xl tracking-tight">SR Automation</span>
       </a>
 
       <div className="hidden md:flex items-center gap-8">
-        {["Leistungen", "Projekte", "Über Uns"].map((item) => (
+        {["Leistungen", "Projekte", "Über Uns", "Partner", "Karriere"].map((item) => (
           <a 
             key={item} 
             href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -50,7 +50,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 right-0 bg-industrial-dark border border-white/10 mt-2 p-6 rounded-lg flex flex-col gap-4 md:hidden shadow-2xl"
         >
-          {["Leistungen", "Projekte", "Über Uns"].map((item) => (
+          {["Leistungen", "Projekte", "Über Uns", "Partner", "Karriere"].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(" ", "-")}`}

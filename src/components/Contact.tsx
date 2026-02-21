@@ -22,8 +22,8 @@ export default function Contact() {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="technical-label">E-Mail</span>
-                  <a href="mailto:info@srautomation.de" className="text-lg font-medium hover:text-primary transition-colors">info@srautomation.de</a>
+                  <span className="technical-label block mb-1">E-Mail</span>
+                  <a href="mailto:info@srautomation.de" className="text-lg font-medium hover:text-primary transition-colors block">info@srautomation.de</a>
                 </div>
               </div>
               
@@ -32,8 +32,8 @@ export default function Contact() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="technical-label">Telefon</span>
-                  <a href="tel:+4926419173331" className="text-lg font-medium hover:text-primary transition-colors">+49 (0) 2641 917 333 – 1</a>
+                  <span className="technical-label block mb-1">Telefon</span>
+                  <a href="tel:+4926419173331" className="text-lg font-medium hover:text-primary transition-colors block">+49 (0) 2641 917 333 – 1</a>
                 </div>
               </div>
               
