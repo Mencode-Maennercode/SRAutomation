@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
+import { useLanguage } from "@/lib/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 
 export default function Services() {
+  const { t } = useLanguage();
   return (
     <section id="leistungen" className="py-24 relative overflow-hidden">
       {/* Background Technical Illustration */}
@@ -31,14 +33,14 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               className="technical-label text-primary"
             >
-              Kompetenzen
+              {t.services.label}
             </motion.span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-bold tracking-tighter mt-4"
             >
-              UNSERE LEISTUNGEN
+              {t.services.title}
             </motion.h2>
           </div>
           <motion.p 
@@ -46,7 +48,7 @@ export default function Services() {
             whileInView={{ opacity: 1 }}
             className="text-muted-foreground max-w-sm text-sm font-mono uppercase tracking-tight"
           >
-            Maßgeschneiderte Lösungen für Steuerung, Anlagenbau und spezialisierte Maschinenkomponenten.
+            {t.services.subtitle}
           </motion.p>
         </div>
 
@@ -73,9 +75,9 @@ export default function Services() {
                     <div className="relative z-10 p-8 h-full flex flex-col justify-between">
                       <div>
                         <span className="technical-label text-primary/80">{service.category} / {service.id}</span>
-                        <h3 className="text-2xl font-bold mt-1 mb-2">{service.title}</h3>
+                        <h3 className="text-2xl font-bold mt-1 mb-2">{t.services.items[index].title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          {service.description}
+                          {t.services.items[index].description}
                         </p>
                       </div>
                       
@@ -93,20 +95,18 @@ export default function Services() {
                 <DialogContent className="glass-dark border-white/10 text-white max-w-3xl">
                   <DialogHeader>
                     <span className="technical-label text-primary">{service.category}</span>
-                    <DialogTitle className="text-4xl font-bold tracking-tighter mt-2">{service.title}</DialogTitle>
+                    <DialogTitle className="text-4xl font-bold tracking-tighter mt-2">{t.services.items[index].title}</DialogTitle>
                   </DialogHeader>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
                     <div className="aspect-video rounded-lg overflow-hidden linear-border">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                      <img src={service.image} alt={t.services.items[index].title} className="w-full h-full object-cover" />
                     </div>
                     <div className="space-y-4">
                       <p className="text-muted-foreground leading-relaxed">
-                        {service.description} Wir bieten umfassende Unterstützung bei der Planung, 
-                        Installation und Wartung Ihrer Systeme. Unsere Lösungen sind auf maximale Effizienz 
-                        und Langlebigkeit ausgelegt.
+                        {t.services.items[index].description} {t.services.dialogExtra}
                       </p>
                       <ul className="space-y-2">
-                        {["Moderne Steuerungskonzepte", "Termingerechte Ausführung", "Fachmännische Beratung"].map(item => (
+                        {t.services.bulletPoints.map(item => (
                           <li key={item} className="flex items-center gap-2 text-sm font-mono uppercase tracking-tight">
                             <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                             {item}

@@ -2,18 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Partners() {
+  const { t } = useLanguage();
   const partners = [
     {
       name: "Herter Industries",
-      description: "Spezialist für Flaschenwaschanlagen und Getränketechnik. Langjähriger Partner für hochwertige Anlagentechnik und innovative Lösungen in der Getränkeindustrie.",
+      description: t.partners.partnerDescriptions[0],
       url: "https://herter-industries.com/",
       logo: "/Images/Herter.png"
     },
     {
       name: "Sistema Seminar",
-      description: "Führender Anbieter für Schulungen im Bereich funktionale Sicherheit nach DIN EN ISO 13849-1. Kompetenter Partner für Sistema-Berechnungen und Performance Level Bewertungen.",
+      description: t.partners.partnerDescriptions[1],
       url: "https://www.sistema-seminar.de/",
       logo: "/Images/sistema.png"
     }
@@ -30,7 +32,7 @@ export default function Partners() {
             whileInView={{ opacity: 1, y: 0 }}
             className="technical-label text-primary"
           >
-            Netzwerk
+            {t.partners.label}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -38,7 +40,7 @@ export default function Partners() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6"
           >
-            UNSERE PARTNER
+            {t.partners.title}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +48,7 @@ export default function Partners() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground"
           >
-            Gemeinsam mit starken Partnern bieten wir umfassende Lösungen für Ihre Automatisierungsprojekte.
+            {t.partners.subtitle}
           </motion.p>
         </div>
 
@@ -89,7 +91,7 @@ export default function Partners() {
 
                 <div className="mt-6 pt-6 border-t border-white/5">
                   <span className="technical-label text-primary/80 group-hover:text-primary transition-colors">
-                    Mehr erfahren →
+                    {t.partners.learnMore}
                   </span>
                 </div>
               </div>

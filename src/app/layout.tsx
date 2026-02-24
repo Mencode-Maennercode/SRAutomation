@@ -9,6 +9,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "SR Automation | Precision in Motion",
   description: "High-end control and plant engineering services for modern industry.",
+  icons: {
+    icon: "/Logo-rund.png",
+    apple: "/Logo-rund.png",
+  },
 };
 
 export default function RootLayout({

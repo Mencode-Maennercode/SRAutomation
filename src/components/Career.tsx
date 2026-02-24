@@ -1,27 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, TrendingUp, Heart } from "lucide-react";
+import { Briefcase, TrendingUp, Heart, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Career() {
-  const benefits = [
-    {
-      icon: Briefcase,
-      title: "Spannende Projekte",
-      description: "Arbeiten Sie an innovativen Automatisierungslösungen für namhafte Kunden"
-    },
-    {
-      icon: TrendingUp,
-      title: "Weiterentwicklung",
-      description: "Fortbildungen und Schulungen für Ihre persönliche und fachliche Entwicklung"
-    },
-    {
-      icon: Heart,
-      title: "Teamgeist",
-      description: "Familiäres Arbeitsklima in einem engagierten und kompetenten Team"
-    }
-  ];
+  const { t } = useLanguage();
+  const icons = [Briefcase, TrendingUp, Heart];
+  const benefits = t.career.benefits.map((b, i) => ({ ...b, icon: icons[i] }));
 
   return (
     <section id="karriere" className="py-24 bg-black/10 relative overflow-hidden">
@@ -34,7 +21,7 @@ export default function Career() {
             whileInView={{ opacity: 1, y: 0 }}
             className="technical-label text-primary"
           >
-            Karriere
+            {t.career.label}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +29,7 @@ export default function Career() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6"
           >
-            VERSTÄRKEN SIE UNSER TEAM
+            {t.career.title}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +37,7 @@ export default function Career() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg"
           >
-            Wir suchen motivierte Fachkräfte, die mit uns die Zukunft der Automatisierungstechnik gestalten möchten.
+            {t.career.subtitle}
           </motion.p>
         </div>
 
@@ -81,36 +68,38 @@ export default function Career() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Offene Stellen</h3>
+              <h3 className="text-2xl font-bold mb-4">{t.career.openPositions}</h3>
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
-                  <span className="text-muted-foreground">Elektriker / Elektroniker (m/w/d)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
-                  <span className="text-muted-foreground">SPS-Programmierer (m/w/d)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
-                  <span className="text-muted-foreground">Schaltschrank-Bauer (m/w/d)</span>
-                </div>
+                {t.career.positions.map((pos) => (
+                  <div key={pos} className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
+                    <span className="text-muted-foreground">{pos}</span>
+                  </div>
+                ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                Auch Initiativbewerbungen sind jederzeit willkommen!
+                {t.career.initiative}
               </p>
             </div>
             <div className="text-center md:text-right">
               <p className="text-muted-foreground mb-6">
-                Interessiert? Ruf mich doch einfach ungezwungen an und lass uns reden!
+                {t.career.cta}
               </p>
-              <a href="tel:+4926419173331">
-                <Button size="lg" className="w-full md:w-auto">
-                  +49 (0) 2641 917 333 – 1
-                </Button>
-              </a>
+              <div className="flex flex-col gap-3">
+                <a href="tel:+4926419173331">
+                  <Button size="lg" className="w-full md:w-auto">
+                    +49 (0) 2641 917 333 – 1
+                  </Button>
+                </a>
+                <a href="https://wa.me/491703432894" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" className="w-full md:w-auto gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    {t.career.whatsapp}
+                  </Button>
+                </a>
+              </div>
               <p className="text-xs text-muted-foreground mt-4">
-                Oder schreib mir: info@srautomation.de
+                {t.career.orEmail}
               </p>
             </div>
           </div>

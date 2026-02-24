@@ -1,6 +1,7 @@
 "use client";
 
 import { feedback } from "@/lib/data";
+import { useLanguage } from "@/lib/LanguageContext";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Carousel,
@@ -11,13 +12,14 @@ import {
 } from "@/components/ui/carousel";
 
 export default function Feedback() {
+  const { t } = useLanguage();
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="technical-label text-primary">Kundenstimmen</span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 uppercase">CUSTOMERS FEEDBACK</h2>
+            <span className="technical-label text-primary">{t.feedback.label}</span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 uppercase">{t.feedback.title}</h2>
           </div>
           <div className="flex flex-col items-end gap-2 text-right">
             <div className="flex gap-1 items-center">
@@ -26,7 +28,7 @@ export default function Feedback() {
               ))}
               <span className="ml-2 font-bold text-2xl text-white">5.0 / 5.0</span>
             </div>
-            <span className="technical-label opacity-60">Basierend auf 14 Kundenbewertungen</span>
+            <span className="technical-label opacity-60">{t.feedback.basedOn}</span>
           </div>
         </div>
 
@@ -39,19 +41,19 @@ export default function Feedback() {
             className="w-full"
           >
             <CarouselContent className="-ml-4 items-start">
-              {feedback.map((item, index) => (
+              {t.feedback.comments.map((comment, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/3">
                   <div className="glass p-10 rounded-xl relative h-full flex flex-col min-h-[320px] hover:border-primary/20 transition-colors duration-500">
                     <Quote className="absolute top-6 right-6 w-16 h-16 text-white/[0.03]" />
                     
                     <div className="flex gap-1 mb-6">
-                      {[...Array(item.rating)].map((_, i) => (
+                      {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </div>
                     
                     <p className="text-base leading-relaxed text-zinc-400 line-clamp-8">
-                      &ldquo;{item.comment}&rdquo;
+                      &ldquo;{comment}&rdquo;
                     </p>
                   </div>
                 </CarouselItem>

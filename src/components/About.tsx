@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Award, Zap, Users } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+  const icons = [Award, Zap, Users];
   return (
     <section id="über-uns" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent pointer-events-none"></div>
@@ -15,27 +18,16 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="technical-label text-primary">Über Uns</span>
+            <span className="technical-label text-primary">{t.about.label}</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6">
-              EXPERTISE TRIFFT INNOVATION
+              {t.about.title}
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                SR Automation steht für höchste Qualität im Bereich Automatisierungstechnik, 
-                Steuerungsbau und Anlagenbau. Unter der Leitung von <strong className="text-white">Srimugunthan Ratnasingam</strong>, 
-                Elektromeister mit langjähriger Erfahrung, realisieren wir anspruchsvolle Projekte 
-                für Industrie und Gewerbe.
+                {t.about.p1} <strong className="text-white">Srimugunthan Ratnasingam</strong>, {t.about.p1b}
               </p>
-              <p>
-                Seit der Gründung im Jahr 2011 haben wir uns auf maßgeschneiderte Lösungen spezialisiert, 
-                die exakt auf die Bedürfnisse unserer Kunden zugeschnitten sind. Von der ersten Planung 
-                über die Fertigung bis hin zur Inbetriebnahme – wir begleiten Sie durch den gesamten Prozess.
-              </p>
-              <p>
-                Unser Anspruch ist es, modernste Technik mit bewährten Sicherheitsstandards zu verbinden 
-                und dabei stets wirtschaftliche Lösungen zu entwickeln. Vertrauen Sie auf unsere Kompetenz 
-                in den Bereichen SPS-Programmierung, Schaltschrankbau, DGUV V3 Prüfungen und Sistema-Berechnungen.
-              </p>
+              <p>{t.about.p2}</p>
+              <p>{t.about.p3}</p>
             </div>
           </motion.div>
 
@@ -45,50 +37,22 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="glass p-8 rounded-xl border border-white/10">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Award className="w-6 h-6 text-primary" />
+            {t.about.cards.map((card, i) => {
+              const Icon = icons[i];
+              return (
+                <div key={card.title} className="glass p-8 rounded-xl border border-white/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+                      <p className="text-muted-foreground text-sm">{card.text}</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Elektromeister</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Srimugunthan Ratnasingam führt SR Automation mit fundiertem Fachwissen 
-                    und jahrzehntelanger Praxiserfahrung in der Elektrotechnik und Automatisierung.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass p-8 rounded-xl border border-white/10">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Seit 2011</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Über ein Jahrzehnt Erfahrung in der Realisierung komplexer Automatisierungsprojekte 
-                    für namhafte Kunden aus verschiedensten Branchen.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass p-8 rounded-xl border border-white/10">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Kundenzufriedenheit</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Unsere Kunden schätzen unsere Zuverlässigkeit, Termintreue und die 
-                    hohe Qualität unserer Arbeit – das bestätigen zahlreiche erfolgreiche Projekte.
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

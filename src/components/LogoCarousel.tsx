@@ -2,14 +2,16 @@
 
 import { motion } from "framer-motion";
 import { partners } from "@/lib/data";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function LogoCarousel() {
   const doubledPartners = [...partners, ...partners];
+  const { t } = useLanguage();
 
   return (
     <div className="py-12 border-y border-white/5 bg-black/20 overflow-hidden">
       <div className="container mx-auto px-6 mb-8 text-center">
-        <span className="technical-label opacity-50">Vertrauen von Branchenführern</span>
+        <span className="technical-label opacity-50">{t.logoCarousel.label}</span>
       </div>
       
       <div className="relative flex overflow-hidden">

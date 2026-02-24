@@ -11,35 +11,35 @@ export const services = [
     title: "Sondermaschinenbau & Steuerungsbau",
     description: "Sondermaschinenbau, Steuerungsbau sowie Modernisierung von Prozess- und Produktionsanlagen.",
     category: "PRODUCTION",
-    image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&h=600&fit=crop",
+    image: "/Images/sonder.jpg",
   },
   {
     id: "03",
     title: "DGUV V3 Prüfung & Sistema-Berechnung",
     description: "Gesetzlich vorgeschriebene regelmäßige Überprüfung von elektrischen Betriebsmitteln und Anlagen nach VDE.",
     category: "SAFETY",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop",
+    image: "/Images/dguv.jpg",
   },
   {
     id: "04",
     title: "Schaltschrank-Bau",
     description: "Professioneller Schaltschrank-Bau nach höchsten Qualitätsstandards.",
     category: "PRODUCTION",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop",
+    image: "/Images/schaltbau.png",
   },
   {
     id: "05",
     title: "Erneuerbare Energien",
     description: "Komplexe maßgeschneiderte Anlagen für nachhaltige Energielösungen.",
     category: "ENERGY",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
+    image: "/Images/elektro.jpg",
   },
   {
     id: "06",
     title: "Montage & Inbetriebnahme",
     description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen.",
     category: "SERVICE",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop",
+    image: "/Images/montage.png",
   }
 ];
 
@@ -49,48 +49,61 @@ export const projects = [
     client: "Getränkeindustrie",
     year: "2023",
     description: "Vollautomatische Flaschenwaschanlage mit integriertem Etikettenlöser für die Getränkeindustrie. Moderne Steuerungstechnik sorgt für maximale Effizienz und Ressourcenschonung im laufenden Betrieb.",
+    detailDescription: "Die Implementierung dieser hochmodernen Anlage erfolgte in enger Zusammenarbeit mit dem Produktionsteam. Durch intelligente Sensorik und präzise Steuerungsalgorithmen konnte der Wasserverbrauch um 30% reduziert werden, während gleichzeitig die Reinigungsqualität deutlich verbessert wurde.",
     tags: ["Automatisierung", "Anlagenbau", "Steuerungstechnik"],
-    image: "https://images.unsplash.com/photo-1504222490345-c075b6008014?w=800&h=600&fit=crop"
+    image: "/Images/flaschen.png",
+    images: ["/Images/flaschen.png", "/Images/flaschen2.png"]
   },
   {
     title: "Wannenpasteur",
     client: "Lebensmittelproduktion",
     year: "2023",
     description: "Touch-Screen-Steuerung mit Rezepturverwaltung für Ihre Produkte. Individuelle Pasteurisierungsprogramme gewährleisten höchste Produktqualität bei optimaler Energieeffizienz.",
+    detailDescription: "Das System wurde mit einer intuitiven Benutzeroberfläche ausgestattet, die es dem Bedienpersonal ermöglicht, verschiedene Produktrezepturen zu verwalten und anzupassen. Die präzise Temperaturregelung garantiert konstante Produktqualität bei minimalem Energieeinsatz.",
     tags: ["Touch-Screen", "Rezepturverwaltung", "SPS"],
-    image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop"
+    image: "/Images/wanne.png",
+    images: ["/Images/wanne.png"]
   },
   {
     title: "Schaltschrankplanung & -bau",
     client: "Industriekunden",
     year: "2024",
     description: "Professionelle Planung und Fertigung von Schaltschränken nach neuesten Normen und Standards. Von der Konzeption bis zur schlüsselfertigen Übergabe aus einer Hand.",
+    detailDescription: "Jeder Schaltschrank wird nach individuellen Kundenanforderungen geplant und gefertigt. Dabei legen wir besonderen Wert auf übersichtliche Verdrahtung, optimale Kühlungskonzepte und einfache Wartbarkeit. Alle Komponenten werden sorgfältig ausgewählt und dokumentiert.",
     tags: ["Schaltschrankbau", "Planung", "Elektrotechnik"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop"
+    image: "/Images/schaltschrankplan.png",
+    images: ["/Images/schaltschrankplan.png", "/Images/schalt1.png", "/Images/schalt2.jpg"]
   },
   {
     title: "Hof Fuhlreit",
     client: "Direktvermarkter",
     year: "2022",
     description: "Maßgeschneiderte Automatisierungslösung für den landwirtschaftlichen Direktvermarkter Hof Fuhlreit. Moderne Steuerungstechnik für effiziente Produktionsabläufe.",
+    detailDescription: "Die Lösung umfasst die vollständige Automatisierung der Produktionsabläufe mit Fokus auf Flexibilität und Zuverlässigkeit. Besonders wichtig war die einfache Bedienbarkeit, damit auch ungelernte Mitarbeiter die Anlage sicher betreiben können.",
     tags: ["Direktvermarktung", "Automatisierung"],
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
+    image: "/Images/Fuhl1.png",
+    images: ["/Images/Fuhl1.png", "/Images/Fuhl2.png", "/Images/Fuhl3.png"]
   },
   {
     title: "Speetenhof",
     client: "Direktvermarkter",
     year: "2022",
     description: "Individuelle Anlagen- und Steuerungslösungen für den Speetenhof. Integration modernster Sicherheitsstandards und benutzerfreundlicher Bedienoberflächen.",
+    detailDescription: "Bei diesem Projekt stand die Sicherheit an erster Stelle. Alle Sicherheitseinrichtungen wurden nach aktuellen Normen implementiert und ausführlich dokumentiert. Die Schulung des Personals erfolgte direkt vor Ort während der Inbetriebnahme.",
     tags: ["Anlagenbau", "Sicherheitstechnik"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop"
+    image: "/Images/speet1.png",
+    images: ["/Images/speet1.png", "/Images/speet2.png", "/Images/speet3.png", "/Images/speet4.png"]
   },
   {
     title: "Seebodenhof",
     client: "Direktvermarkter",
     year: "2021",
     description: "Komplettlösung im Bereich Steuerungs- und Anlagenbau für den Seebodenhof. Von der Planung über die Installation bis hin zur Inbetriebnahme.",
+    detailDescription: "Als Generalunternehmer haben wir alle Gewerke koordiniert und eine nahtlose Integration aller Systeme sichergestellt. Die termingerechte Fertigstellung trotz enger Zeitvorgaben war eine besondere Herausforderung, die wir erfolgreich gemeistert haben.",
     tags: ["Komplettlösung", "Inbetriebnahme"],
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop"
+    image: "/Images/see1.png",
+    images: ["/Images/see1.png", "/Images/see2.png", "/Images/see3.png", "/Images/see4.png"],
+    imagePositions: ["top left", "top left", "top left", "top left"]
   }
 ];
 

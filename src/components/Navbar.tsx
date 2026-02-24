@@ -4,9 +4,24 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
+
+const navAnchors: Record<string, string> = {
+  Leistungen: "leistungen",
+  Projekte: "projekte",
+  "Über Uns": "über-uns",
+  Partner: "partner",
+  Karriere: "karriere",
+  Services: "leistungen",
+  Projects: "projekte",
+  "About Us": "über-uns",
+  Partners: "partner",
+  Careers: "karriere",
+};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, lang, toggleLang } = useLanguage();
 
   return (
     <motion.nav 
@@ -24,10 +39,10 @@ export default function Navbar() {
       </a>
 
       <div className="hidden md:flex items-center gap-8">
-        {["Leistungen", "Projekte", "Über Uns", "Partner", "Karriere"].map((item) => (
+        {t.nav.items.map((item) => (
           <a 
             key={item} 
-            href={`#${item.toLowerCase().replace(" ", "-")}`}
+            href={`#${navAnchors[item] ?? item.toLowerCase().replace(" ", "-")}`}
             className="technical-label hover:text-primary transition-colors cursor-pointer"
           >
             {item}
@@ -35,14 +50,28 @@ export default function Navbar() {
         ))}
         <a href="#kontakt">
           <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/5">
-            KONTAKT
+            {t.nav.contact}
           </Button>
         </a>
+        <button
+          onClick={toggleLang}
+          className="technical-label border border-white/20 rounded px-2 py-1 hover:border-primary hover:text-primary transition-colors"
+        >
+          {lang === "de" ? "EN" : "DE"}
+        </button>
       </div>
 
-      <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <X /> : <Menu />}
-      </button>
+      <div className="flex items-center gap-3 md:hidden">
+        <button
+          onClick={toggleLang}
+          className="technical-label border border-white/20 rounded px-2 py-1 hover:border-primary hover:text-primary transition-colors"
+        >
+          {lang === "de" ? "EN" : "DE"}
+        </button>
+        <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
 
       {isOpen && (
         <motion.div 
@@ -50,10 +79,10 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 right-0 bg-industrial-dark border border-white/10 mt-2 p-6 rounded-lg flex flex-col gap-4 md:hidden shadow-2xl"
         >
-          {["Leistungen", "Projekte", "Über Uns", "Partner", "Karriere"].map((item) => (
+          {t.nav.items.map((item) => (
             <a 
               key={item} 
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              href={`#${navAnchors[item] ?? item.toLowerCase().replace(" ", "-")}`}
               className="technical-label py-2"
               onClick={() => setIsOpen(false)}
             >
@@ -61,7 +90,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#kontakt" onClick={() => setIsOpen(false)}>
-            <Button className="w-full">KONTAKT</Button>
+            <Button className="w-full">{t.nav.contact}</Button>
           </a>
         </motion.div>
       )}

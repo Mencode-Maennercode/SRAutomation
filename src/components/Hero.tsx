@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CountUp from "./CountUp";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface Particle {
   id: number;
@@ -17,6 +18,7 @@ interface Particle {
 
 export default function Hero() {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const newParticles = [...Array(20)].map((_, i) => ({
@@ -84,35 +86,33 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="technical-label text-primary mb-4 block">Est. 2012 | Industry 4.0</span>
+            <span className="technical-label text-primary mb-4 block">{t.hero.label}</span>
             <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.9]">
-              PRECISION <br />
-              <span className="text-muted-foreground">IN MOTION.</span>
+              {t.hero.title1} <br />
+              <span className="text-muted-foreground">{t.hero.title2}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Kundenorientierter Steuerungs- und Anlagenbau für den modernen Maschinenbau. 
-              Wir vereinen 30 Jahre Tradition mit der Technik von morgen.
+              {t.hero.subtitle}
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="px-8 h-14 text-base gap-2 group">
-                UNSERE LEISTUNGEN
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 h-14 text-base border-white/10 hover:bg-white/5">
-                BEISPIELPROJEKTE
-              </Button>
+              <a href="#leistungen">
+                <Button size="lg" className="px-8 h-14 text-base gap-2 group">
+                  {t.hero.btn1}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+              <a href="#projekte">
+                <Button size="lg" variant="outline" className="px-8 h-14 text-base border-white/10 hover:bg-white/5">
+                  {t.hero.btn2}
+                </Button>
+              </a>
             </div>
           </motion.div>
 
           {/* Floating Technical Stats */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "PROJEKTE", value: "500", suffix: "+" },
-              { label: "ERFAHRUNG", value: "30", suffix: "J" },
-              { label: "STANDORT", value: "0", suffix: "" },
-              { label: "KUNDENZUFRIEDENHEIT", value: "100", suffix: "%" },
-            ].map((stat, i) => (
+            {t.hero.stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0 }}
@@ -121,7 +121,7 @@ export default function Hero() {
                 className="flex flex-col items-center"
               >
                 <span className="text-2xl font-bold font-mono text-white">
-                  {stat.label === "STANDORT" ? "Weltweit" : (
+                  {stat.value === "0" ? "Weltweit" : (
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   )}
                 </span>
