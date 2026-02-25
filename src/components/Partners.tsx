@@ -30,7 +30,6 @@ export default function Partners() {
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="technical-label text-primary"
           >
             {t.partners.label}
@@ -38,8 +37,7 @@ export default function Partners() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.4 }}
+            transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6"
           >
             {t.partners.title}
@@ -47,8 +45,7 @@ export default function Partners() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.2 }}
             className="text-muted-foreground"
           >
             {t.partners.subtitle}
@@ -62,10 +59,9 @@ export default function Partners() {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
+              transition={{ delay: index * 0.2 }}
               className="glass p-8 rounded-xl border border-white/10 hover:border-primary/30 transition-all duration-300 group relative"
             >
               <ExternalLink className="absolute top-4 right-4 w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />

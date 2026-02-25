@@ -19,7 +19,6 @@ export default function Career() {
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="technical-label text-primary"
           >
             {t.career.label}
@@ -27,8 +26,7 @@ export default function Career() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.4 }}
+            transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6"
           >
             {t.career.title}
@@ -36,8 +34,7 @@ export default function Career() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg"
           >
             {t.career.subtitle}
@@ -48,10 +45,9 @@ export default function Career() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
+              transition={{ delay: index * 0.1 }}
               className="glass p-8 rounded-xl border border-white/10 text-center"
             >
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
@@ -66,10 +62,8 @@ export default function Career() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
           className="glass p-12 rounded-xl border border-white/10 max-w-4xl mx-auto"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
