@@ -103,7 +103,7 @@ export const projects = [
     tags: ["Komplettlösung", "Inbetriebnahme"],
     image: "/Images/see1.png",
     images: ["/Images/see1.png", "/Images/see2.png", "/Images/see3.png", "/Images/see4.png"],
-    imagePositions: ["top left", "top left", "top left", "top left"]
+    imagePositions: ["center center", "center center", "center center", "center center"]
   }
 ];
 
