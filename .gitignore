@@ -14,7 +14,7 @@
 /coverage
 
 # next.js
-/.next/
+# /.next/  # Uncommented for dogado deployment - we need the built files
 /out/
 
 # production

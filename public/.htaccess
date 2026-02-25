@@ -1,0 +1,10 @@
+PassengerEnabled on
+PassengerAppRoot /var/www/vhosts/srautomation.de/httpdocs/public_html
+PassengerAppType node
+PassengerStartupFile server.js
+PassengerNodejs /usr/bin/node
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
