@@ -17,14 +17,6 @@ export default function Services() {
   const { t } = useLanguage();
   return (
     <section id="leistungen" className="py-24 relative overflow-hidden">
-      {/* Background Technical Illustration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
-        <img 
-          src="https://pixabay.com/get/g075046e05027701ec401eca79d864b5d03bce2059a33be3b2acb51fecfd3724ee9ccff5dab9505dd47947cb06cad4f62.svg" 
-          alt="Technical Circuitry by GDJ on Pixabay" 
-          className="w-full h-full invert"
-        />
-      </div>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
@@ -54,12 +46,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[300px]">
           {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-            >
+            <div key={service.id}>
               <Dialog>
                 <DialogTrigger asChild>
                   <Card className="h-full relative overflow-hidden group border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 glass cursor-pointer">
@@ -117,7 +104,7 @@ export default function Services() {
                   </div>
                 </DialogContent>
               </Dialog>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

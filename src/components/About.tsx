@@ -16,7 +16,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
           >
             <span className="technical-label text-primary">{t.about.label}</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mt-4 mb-6">
@@ -34,7 +35,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="space-y-6"
           >
             {t.about.cards.map((card, i) => {

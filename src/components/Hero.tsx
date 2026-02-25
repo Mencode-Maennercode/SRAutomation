@@ -21,7 +21,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    const newParticles = [...Array(20)].map((_, i) => ({
+    const newParticles = [...Array(8)].map((_, i) => ({
       id: i,
       x: Math.random() * 100 + "%",
       y: Math.random() * 100 + "%",
@@ -34,20 +34,16 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Cinematic Background Footage with subtle animation */}
-      <motion.div 
-        animate={{ scale: [1, 1.02, 1] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 z-0"
-      >
+      {/* Cinematic Background */}
+      <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.pexels.com/photos/16544056/pexels-photo-16544056.jpeg" 
-          alt="Technical Background by KJ Brix on Pexels" 
+          src="/Images/pexels-tima-miroshnichenko-5846172.jpg"
+          alt="Technical Background"
           className="w-full h-full object-cover opacity-30 grayscale contrast-125"
           style={{ backgroundColor: "#8C94A9" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
-      </motion.div>
+      </div>
 
       {/* Floating Particles for Dynamic Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
