@@ -18,6 +18,12 @@ export default function Partners() {
       description: t.partners.partnerDescriptions[1],
       url: "https://www.sistema-seminar.de/",
       logo: "/Images/sistema.png"
+    },
+    {
+      name: "IBC SOLAR",
+      description: t.partners.partnerDescriptions[2],
+      url: "https://www.ibc-solar.de/",
+      logo: "/Images/ibc.png"
     }
   ];
 
@@ -73,7 +79,7 @@ export default function Partners() {
                       src={partner.logo} 
                       alt={partner.name}
                       className={`w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity ${
-                        partner.name === "Sistema Seminar" 
+                        partner.name === "Sistema Seminar" || partner.name === "IBC SOLAR"
                           ? "max-h-16" 
                           : "max-h-6 filter brightness-0 invert"
                       }`}

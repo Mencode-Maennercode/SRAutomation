@@ -73,6 +73,7 @@ export const translations = {
       partnerDescriptions: [
         "Spezialist für Flaschenwaschanlagen und Getränketechnik. Langjähriger Partner für hochwertige Anlagentechnik und innovative Lösungen in der Getränkeindustrie.",
         "Führender Anbieter für Schulungen im Bereich funktionale Sicherheit nach DIN EN ISO 13849-1. Kompetenter Partner für Sistema-Berechnungen und Performance Level Bewertungen.",
+        "Hersteller und Systemanbieter für Photovoltaik-Lösungen. Zuverlässiger Partner für qualitativ hochwertige PV-Komponenten und ganzheitliche Energiekonzepte.",
       ],
     },
     feedback: {
@@ -147,13 +148,64 @@ export const translations = {
         { heading: "Bildnachweise", text: "Einige auf dieser Website verwendeten Bilder stammen von externen Plattformen:\n\n\u2022 Hintergrundbild (Hero-Bereich): \"Industrial machinery\" von KJ Brix, Pexels.com – Lizenz: Pexels-Lizenz (kostenlose Nutzung)\n\u2022 Engineering-Leistungskarte: Foto von Pexels.com (ID 2157750954) – Lizenz: Pexels-Lizenz (kostenlose Nutzung)\n\u2022 Technische Illustration (Leistungen-Hintergrund): \"Circuit Board\" von GDJ, Pixabay.com – Lizenz: Pixabay-Inhaltslizenz (kostenlose Nutzung)\n\nAlle \u00fcbrigen Bilder sind Eigentum von SR Automation und unterliegen dem Urheberrecht." },
       ],
       privacyContent: [
-        { heading: "Wer wir sind", text: "Die Adresse unserer Website ist: www.srautomation.de." },
-        { heading: "Verantwortlicher", text: "Srimugunthan Ratnasingam\nSR Automation\nSimmelsgartenstraße 14\n53501 Grafschaft\n\nE-Mail: info@srautomation.de\nTelefon: +49 (0) 2641 917 333 – 1" },
-        { heading: "Erhebung und Speicherung personenbezogener Daten", text: "Wenn Sie unsere Website besuchen, erhebt der Hosting-Provider automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser übermittelt. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt." },
-        { heading: "Kontaktformular", text: "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter." },
-        { heading: "Eingebettete Inhalte von anderen Websites", text: "Beiträge auf dieser Website können eingebettete Inhalte beinhalten. Eingebettete Inhalte von anderen Websites verhalten sich exakt so, als ob der Besucher die andere Website besucht hätte." },
-        { heading: "Welche Rechte Sie an Ihren Daten haben", text: "Sie können jederzeit Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten verlangen. Darüber hinaus können Sie die Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer personenbezogenen Daten anfordern." },
-        { heading: "Wohin wir Ihre Daten senden", text: "Ihre Daten werden ausschließlich im Rahmen der beschriebenen Zwecke verarbeitet und nicht an Dritte weitergegeben, es sei denn, dies ist zur Vertragsfüllung erforderlich oder Sie haben ausdrücklich eingewilligt." },
+        {
+          heading: "1. Verantwortlicher",
+          text:
+            "Verantwortlich für die Datenverarbeitung auf dieser Website ist:\n\n" +
+            "Srimugunthan Ratnasingam\n" +
+            "SR Automation\n" +
+            "Simmelsgartenstraße 14\n" +
+            "53501 Grafschaft\n\n" +
+            "E-Mail: info@srautomation.de\n" +
+            "Telefon: +49 (0) 2641 917 333 – 1"
+        },
+        {
+          heading: "2. Hosting und Aufruf der Website",
+          text:
+            "Diese Website wird als moderne Webanwendung mit dem Framework Next.js betrieben und über den Anbieter Vercel (Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA) bereitgestellt. Die Domain wird über den Provider dogado verwaltet.\n\n" +
+            "Beim Aufruf unserer Website werden durch den von Ihnen verwendeten Browser automatisch Informationen an die Server von Vercel übermittelt und in sogenannten Server-Logfiles gespeichert. Dies sind insbesondere:\n" +
+            "• IP-Adresse (in gekürzter/gekürzter Form, soweit technisch möglich)\n" +
+            "• Datum und Uhrzeit des Abrufs\n" +
+            "• aufgerufene URL\n" +
+            "• übertragene Datenmenge\n" +
+            "• Browsertyp und -version\n" +
+            "• verwendetes Betriebssystem.\n\n" +
+            "Die Verarbeitung dieser Daten erfolgt zur technischen Bereitstellung der Website, zur Sicherstellung der Systemsicherheit und zur Fehleranalyse. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb der Website). Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt."
+        },
+        {
+          heading: "3. Kontaktaufnahme",
+          text:
+            "Sie können über die auf der Website angegebenen Kontaktwege (E-Mail, Telefon, WhatsApp) sowie über das bereitgestellte Kontaktformular mit uns in Verbindung treten.\n\n" +
+            "Bei einer Kontaktaufnahme werden die von Ihnen mitgeteilten Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachrichtentext) ausschließlich zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen verwendet. Die Eingabefelder im Kontaktformular werden clientseitig bereitgestellt; eine darüber hinausgehende automatisierte Verarbeitung oder Weitergabe an Dritte findet nicht statt.\n\n" +
+            "Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung bzw. -erfüllung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen)."
+        },
+        {
+          heading: "4. Einsatz von Cookies und Tracking",
+          text:
+            "Auf dieser Website werden derzeit keine Analyse-Tools (wie z. B. Google Analytics) und keine Marketing- oder Tracking-Cookies eingesetzt. Es werden nur technisch erforderliche Funktionen bereitgestellt, die für die Darstellung der Seite und die Nutzung des Kontaktformulars notwendig sind."
+        },
+        {
+          heading: "5. Dauer der Speicherung",
+          text:
+            "Personenbezogene Daten, die Sie uns im Rahmen einer Kontaktaufnahme mitteilen, speichern wir nur so lange, wie es für die Bearbeitung Ihrer Anfrage erforderlich ist oder wie gesetzliche Aufbewahrungspflichten bestehen. Server-Logfiles werden von unserem Hosting-Anbieter automatisch gelöscht, sobald sie für die genannten Zwecke (Sicherheit, Fehlersuche) nicht mehr benötigt werden."
+        },
+        {
+          heading: "6. Ihre Rechte als betroffene Person",
+          text:
+            "Sie haben im Rahmen der geltenden Datenschutzgesetze jederzeit das Recht auf:\n" +
+            "• Auskunft über Ihre bei uns verarbeiteten personenbezogenen Daten (Art. 15 DSGVO),\n" +
+            "• Berichtigung unrichtiger Daten (Art. 16 DSGVO),\n" +
+            "• Löschung Ihrer Daten (Art. 17 DSGVO),\n" +
+            "• Einschränkung der Verarbeitung (Art. 18 DSGVO),\n" +
+            "• Widerspruch gegen die Verarbeitung (Art. 21 DSGVO),\n" +
+            "• Datenübertragbarkeit (Art. 20 DSGVO).\n\n" +
+            "Sofern Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen. Hierfür genügt eine formlose Mitteilung an die oben genannten Kontaktdaten."
+        },
+        {
+          heading: "7. Beschwerderecht bei der Aufsichtsbehörde",
+          text:
+            "Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die Datenschutzgrundverordnung verstößt, haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren (Art. 77 DSGVO). Zuständig ist in der Regel die Aufsichtsbehörde Ihres üblichen Aufenthaltsortes oder des Sitzes unseres Unternehmens."
+        },
       ],
     },
   },
@@ -231,6 +283,7 @@ export const translations = {
       partnerDescriptions: [
         "Specialist in bottle washing systems and beverage technology. Long-standing partner for high-quality plant engineering and innovative solutions in the beverage industry.",
         "Leading provider of training in functional safety according to DIN EN ISO 13849-1. Competent partner for Sistema calculations and Performance Level assessments.",
+        "Manufacturer and system provider for photovoltaic solutions. Reliable partner for high-quality PV components and holistic energy concepts.",
       ],
     },
     feedback: {
@@ -305,13 +358,64 @@ export const translations = {
         { heading: "Image Credits", text: "Some images used on this website are sourced from external platforms:\n\n\u2022 Background image (Hero section): \"Industrial machinery\" by KJ Brix, Pexels.com \u2013 License: Pexels License (free to use)\n\u2022 Engineering service card: Photo from Pexels.com (ID 2157750954) \u2013 License: Pexels License (free to use)\n\u2022 Technical illustration (Services background): \"Circuit Board\" by GDJ, Pixabay.com \u2013 License: Pixabay Content License (free to use)\n\nAll other images are property of SR Automation and are protected by copyright." },
       ],
       privacyContent: [
-        { heading: "Who we are", text: "The address of our website is: www.srautomation.de." },
-        { heading: "Controller", text: "Srimugunthan Ratnasingam\nSR Automation\nSimmelsgartenstra\u00dfe 14\n53501 Grafschaft\n\nE-Mail: info@srautomation.de\nPhone: +49 (0) 2641 917 333 \u2013 1" },
-        { heading: "Collection and storage of personal data", text: "When you visit our website, the hosting provider automatically collects information in so-called server log files transmitted by your browser. This data is not merged with other data sources." },
-        { heading: "Contact form", text: "If you send us enquiries via the contact form, your details from the enquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the enquiry and in the event of follow-up questions. We do not pass on this data without your consent." },
-        { heading: "Embedded content from other websites", text: "Posts on this website may contain embedded content. Embedded content from other websites behaves in exactly the same way as if the visitor had visited the other website." },
-        { heading: "What rights you have over your data", text: "You may request information about the personal data we hold about you at any time. You may also request correction, deletion or restriction of processing of your personal data." },
-        { heading: "Where your data is sent", text: "Your data is processed exclusively within the scope of the described purposes and is not passed on to third parties unless this is necessary for the performance of a contract or you have expressly consented." },
+        {
+          heading: "1. Controller",
+          text:
+            "The controller responsible for data processing on this website is:\n\n" +
+            "Srimugunthan Ratnasingam\n" +
+            "SR Automation\n" +
+            "Simmelsgartenstraße 14\n" +
+            "53501 Grafschaft\n\n" +
+            "E-mail: info@srautomation.de\n" +
+            "Phone: +49 (0) 2641 917 333 – 1"
+        },
+        {
+          heading: "2. Hosting and access to the website",
+          text:
+            "This website is operated as a modern web application using the Next.js framework and is hosted by Vercel (Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA). The domain is managed by the provider dogado.\n\n" +
+            "When you access our website, information is automatically transmitted by the browser you use to the servers of Vercel and stored in so-called server log files. In particular, the following data is processed:\n" +
+            "• IP address (in shortened/anonymised form where technically possible)\n" +
+            "• date and time of access\n" +
+            "• requested URL\n" +
+            "• amount of data transferred\n" +
+            "• browser type and version\n" +
+            "• operating system used.\n\n" +
+            "The processing of this data takes place in order to technically provide the website, ensure system security and analyse errors. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in a secure and stable operation of the website). This data is not combined with other data sources."
+        },
+        {
+          heading: "3. Contacting us",
+          text:
+            "You can contact us via the contact options provided on the website (e-mail, phone, WhatsApp) as well as via the contact form.\n\n" +
+            "When you contact us, the data you provide (e.g. name, e-mail address, phone number, message text) is used exclusively to process your enquiry and any follow-up questions. The input fields in the contact form are provided on the client side; there is no further automated processing or disclosure to third parties beyond this.\n\n" +
+            "The legal basis for the processing is Art. 6 (1) (b) GDPR (performance of a contract or steps prior to entering into a contract) and Art. 6 (1) (f) GDPR (legitimate interest in responding to enquiries)."
+        },
+        {
+          heading: "4. Use of cookies and tracking",
+          text:
+            "This website currently does not use any analytics tools (such as Google Analytics) and no marketing or tracking cookies. Only technically necessary functions are provided which are required for displaying the website and using the contact form."
+        },
+        {
+          heading: "5. Storage period",
+          text:
+            "We store personal data that you provide to us in the course of contacting us only for as long as is necessary to process your enquiry or as long as statutory retention obligations exist. Server log files are automatically deleted by our hosting provider as soon as they are no longer required for the aforementioned purposes (security, error analysis)."
+        },
+        {
+          heading: "6. Your rights as a data subject",
+          text:
+            "Within the scope of the applicable data protection laws, you have the following rights at any time:\n" +
+            "• right of access to the personal data concerning you that we process (Art. 15 GDPR),\n" +
+            "• right to rectification of inaccurate data (Art. 16 GDPR),\n" +
+            "• right to erasure of your data (Art. 17 GDPR),\n" +
+            "• right to restriction of processing (Art. 18 GDPR),\n" +
+            "• right to object to processing (Art. 21 GDPR),\n" +
+            "• right to data portability (Art. 20 GDPR).\n\n" +
+            "If you have given consent to data processing, you may withdraw this consent at any time with effect for the future. A simple notice to the contact details mentioned above is sufficient."
+        },
+        {
+          heading: "7. Right to lodge a complaint with a supervisory authority",
+          text:
+            "If you believe that the processing of your personal data infringes the General Data Protection Regulation, you have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). As a rule, you may contact the supervisory authority at your habitual residence or place of work or at the place of the alleged infringement."
+        },
       ],
     },
   },
