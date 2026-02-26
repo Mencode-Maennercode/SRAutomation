@@ -27,6 +27,8 @@ export default function Partners() {
     }
   ];
 
+  const gridColsClass = partners.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
+
   return (
     <section id="partner" className="py-24 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -58,7 +60,7 @@ export default function Partners() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className={`grid grid-cols-1 ${gridColsClass} gap-8 max-w-5xl mx-auto`}>
           {partners.map((partner, index) => (
             <motion.a
               key={partner.name}
