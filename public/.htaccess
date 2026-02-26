@@ -1,10 +1,10 @@
-PassengerEnabled on
-PassengerAppRoot /var/www/vhosts/srautomation.de/httpdocs/public_html
-PassengerAppType node
-PassengerStartupFile server.js
-PassengerNodejs /usr/bin/node
-
+Options -MultiViews
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Route all other requests to index.html (SPA fallback)
+RewriteRule ^ /index.html [L]

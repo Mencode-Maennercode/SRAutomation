@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next build && cp -r out/* ../public_html/",
     "start": "node server.js",
     "lint": "eslint"
   },
