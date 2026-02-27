@@ -27,7 +27,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$to = 'heidenreich89@gmail.com';
+$to = 'info@srautomation.de';
 $email_subject = "Kontaktanfrage: " . $subject;
 $email_body = "Neue Kontaktanfrage von der SR Automation Website:\n\n";
 $email_body .= "Name: " . $name . "\n";
