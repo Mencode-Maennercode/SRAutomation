@@ -1,12 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
+import { useState, FormEvent } from "react";
 
 export default function Contact() {
   const { t } = useLanguage();
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formDataObj = new FormData(form);
+
+    try {
+      await fetch("https://formsubmit.co/heidenreich89@gmail.com", {
+        method: "POST",
+        body: formDataObj,
+      });
+      
+      setSubmitSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="kontakt" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
@@ -70,30 +98,81 @@ export default function Contact() {
               <span className="technical-label opacity-30">FORM_SYS_v2.0</span>
             </div>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="technical-label">{t.contact.formName}</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" placeholder={t.contact.formPlaceholderName} />
+                  <input 
+                    name="name" 
+                    type="text" 
+                    required 
+                    value={formData.name} 
+                    onChange={(e) => setFormData({...formData, name: e.target.value})} 
+                    className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" 
+                    placeholder={t.contact.formPlaceholderName} 
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="technical-label">{t.contact.formEmail}</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" placeholder={t.contact.formPlaceholderEmail} />
+                  <input 
+                    name="email" 
+                    type="email" 
+                    required 
+                    value={formData.email} 
+                    onChange={(e) => setFormData({...formData, email: e.target.value})} 
+                    className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" 
+                    placeholder={t.contact.formPlaceholderEmail} 
+                  />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="technical-label">{t.contact.formSubject}</label>
-                <input className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" placeholder={t.contact.formPlaceholderSubject} />
+                <input 
+                  name="_subject" 
+                  type="text" 
+                  required 
+                  value={formData.subject} 
+                  onChange={(e) => setFormData({...formData, subject: e.target.value})} 
+                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors" 
+                  placeholder={t.contact.formPlaceholderSubject} 
+                />
               </div>
               
               <div className="space-y-2">
                 <label className="technical-label">{t.contact.formMessage}</label>
-                <textarea className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors h-32 resize-none" placeholder={t.contact.formPlaceholderMessage} />
+                <textarea 
+                  name="message" 
+                  required 
+                  value={formData.message} 
+                  onChange={(e) => setFormData({...formData, message: e.target.value})} 
+                  className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors h-32 resize-none" 
+                  placeholder={t.contact.formPlaceholderMessage} 
+                />
+                <input type="hidden" name="_next" value="#kontakt" />
+                <input type="hidden" name="_captcha" value="false" />
               </div>
               
-              <Button size="lg" className="w-full h-14 text-base gap-2">
-                {t.contact.formSubmit}
+              {submitSuccess && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 text-green-500 bg-green-500/10 border border-green-500/20 rounded px-4 py-3"
+                >
+                  <CheckCircle2 className="w-5 h-5" />
+                  <span className="text-sm font-medium">
+                    {t.contact.formSuccess || "Nachricht erfolgreich versendet!"}
+                  </span>
+                </motion.div>
+              )}
+              
+              <Button 
+                type="submit" 
+                size="lg" 
+                disabled={isSubmitting} 
+                className="w-full h-14 text-base gap-2"
+              >
+                {isSubmitting ? (t.contact.formSending || "Wird gesendet...") : t.contact.formSubmit}
                 <Send className="w-4 h-4" />
               </Button>
             </form>

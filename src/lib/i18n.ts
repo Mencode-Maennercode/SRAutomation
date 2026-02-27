@@ -131,6 +131,8 @@ export const translations = {
       formPlaceholderSubject: "Wie können wir helfen?",
       formPlaceholderMessage: "Ihre Nachricht an uns...",
       formSubmit: "ANFRAGE SENDEN",
+      formSending: "Wird gesendet...",
+      formSuccess: "Nachricht erfolgreich versendet!",
     },
     footer: {
       rights: "\u00a9 2026 SR Automation. Alle Rechte vorbehalten.",
@@ -162,9 +164,9 @@ export const translations = {
         {
           heading: "2. Hosting und Aufruf der Website",
           text:
-            "Diese Website wird als moderne Webanwendung mit dem Framework Next.js betrieben und über den Anbieter Vercel (Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA) bereitgestellt. Die Domain wird über den Provider dogado verwaltet.\n\n" +
-            "Beim Aufruf unserer Website werden durch den von Ihnen verwendeten Browser automatisch Informationen an die Server von Vercel übermittelt und in sogenannten Server-Logfiles gespeichert. Dies sind insbesondere:\n" +
-            "• IP-Adresse (in gekürzter/gekürzter Form, soweit technisch möglich)\n" +
+            "Diese Website wird als moderne Webanwendung mit dem Framework Next.js betrieben und über den Anbieter dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Deutschland) bereitgestellt. Die Bereitstellung erfolgt über Git-Deployment direkt auf den Servern von dogado.\n\n" +
+            "Beim Aufruf unserer Website werden durch den von Ihnen verwendeten Browser automatisch Informationen an die Server von dogado übermittelt und in sogenannten Server-Logfiles gespeichert. Dies sind insbesondere:\n" +
+            "• IP-Adresse (in gekürzter Form, soweit technisch möglich)\n" +
             "• Datum und Uhrzeit des Abrufs\n" +
             "• aufgerufene URL\n" +
             "• übertragene Datenmenge\n" +
@@ -341,6 +343,8 @@ export const translations = {
       formPlaceholderSubject: "How can we help?",
       formPlaceholderMessage: "Your message to us...",
       formSubmit: "SEND REQUEST",
+      formSending: "Sending...",
+      formSuccess: "Message sent successfully!",
     },
     footer: {
       rights: "\u00a9 2026 SR Automation. All rights reserved.",
@@ -372,8 +376,8 @@ export const translations = {
         {
           heading: "2. Hosting and access to the website",
           text:
-            "This website is operated as a modern web application using the Next.js framework and is hosted by Vercel (Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA). The domain is managed by the provider dogado.\n\n" +
-            "When you access our website, information is automatically transmitted by the browser you use to the servers of Vercel and stored in so-called server log files. In particular, the following data is processed:\n" +
+            "This website is operated as a modern web application using the Next.js framework and is hosted by dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Germany). Deployment is done via Git directly to dogado servers.\n\n" +
+            "When you access our website, information is automatically transmitted by the browser you use to the servers of dogado and stored in so-called server log files. In particular, the following data is processed:\n" +
             "• IP address (in shortened/anonymised form where technically possible)\n" +
             "• date and time of access\n" +
             "• requested URL\n" +
