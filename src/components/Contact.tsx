@@ -20,15 +20,20 @@ export default function Contact() {
     const formDataObj = new FormData(form);
 
     try {
-      await fetch("https://formsubmit.co/heidenreich89@gmail.com", {
+      const response = await fetch("/contact-handler.php", {
         method: "POST",
         body: formDataObj,
       });
       
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      const result = await response.json();
       
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        console.error("Form submission failed:", result.message);
+      }
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
@@ -129,7 +134,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="technical-label">{t.contact.formSubject}</label>
                 <input 
-                  name="_subject" 
+                  name="subject" 
                   type="text" 
                   required 
                   value={formData.subject} 
@@ -149,8 +154,6 @@ export default function Contact() {
                   className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 focus:border-primary outline-none transition-colors h-32 resize-none" 
                   placeholder={t.contact.formPlaceholderMessage} 
                 />
-                <input type="hidden" name="_next" value="#kontakt" />
-                <input type="hidden" name="_captcha" value="false" />
               </div>
               
               {submitSuccess && (

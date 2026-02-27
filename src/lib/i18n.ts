@@ -164,7 +164,7 @@ export const translations = {
         {
           heading: "2. Hosting und Aufruf der Website",
           text:
-            "Diese Website wird als moderne Webanwendung mit dem Framework Next.js betrieben und über den Anbieter dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Deutschland) bereitgestellt. Die Bereitstellung erfolgt über Git-Deployment direkt auf den Servern von dogado.\n\n" +
+            "Diese Website wird als moderne Webanwendung mit dem Framework Next.js betrieben und über den Anbieter dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Deutschland) gehostet.\n\n" +
             "Beim Aufruf unserer Website werden durch den von Ihnen verwendeten Browser automatisch Informationen an die Server von dogado übermittelt und in sogenannten Server-Logfiles gespeichert. Dies sind insbesondere:\n" +
             "• IP-Adresse (in gekürzter Form, soweit technisch möglich)\n" +
             "• Datum und Uhrzeit des Abrufs\n" +
@@ -376,7 +376,7 @@ export const translations = {
         {
           heading: "2. Hosting and access to the website",
           text:
-            "This website is operated as a modern web application using the Next.js framework and is hosted by dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Germany). Deployment is done via Git directly to dogado servers.\n\n" +
+            "This website is operated as a modern web application using the Next.js framework and is hosted by dogado GmbH (dogado GmbH, Saarlandstr. 25, 44139 Dortmund, Germany).\n\n" +
             "When you access our website, information is automatically transmitted by the browser you use to the servers of dogado and stored in so-called server log files. In particular, the following data is processed:\n" +
             "• IP address (in shortened/anonymised form where technically possible)\n" +
             "• date and time of access\n" +
