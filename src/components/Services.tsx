@@ -20,8 +20,8 @@ export default function Services() {
       {/* Background Technical Illustration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
         <img 
-          src="https://pixabay.com/get/g075046e05027701ec401eca79d864b5d03bce2059a33be3b2acb51fecfd3724ee9ccff5dab9505dd47947cb06cad4f62.svg" 
-          alt="Technical Circuitry by GDJ on Pixabay" 
+          src="/Images/technical-circuitry.svg" 
+          alt="Technical Circuitry" 
           className="w-full h-full invert"
         />
       </div>

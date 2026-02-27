@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && node -e \"const fs=require('fs');if(fs.existsSync('out/index.html')){fs.renameSync('out/index.html','out/app.html');console.log('Renamed index.html to app.html');}\"",
+    "build": "next build",
     "export": "next build && cp -r out/* ../public_html/",
     "start": "node server.js",
     "lint": "eslint"

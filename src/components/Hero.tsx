@@ -41,8 +41,8 @@ export default function Hero() {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="https://images.pexels.com/photos/16544056/pexels-photo-16544056.jpeg" 
-          alt="Technical Background by KJ Brix on Pexels" 
+          src="/Images/hero-background.jpeg" 
+          alt="Technical Background" 
           className="w-full h-full object-cover opacity-30 grayscale contrast-125"
           style={{ backgroundColor: "#8C94A9" }}
         />
