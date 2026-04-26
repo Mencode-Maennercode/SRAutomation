@@ -21,7 +21,7 @@ export default function LogoCarousel() {
           className="flex gap-20 items-center whitespace-nowrap px-10"
         >
           {doubledPartners.map((partner, i) => (
-            <div key={i} className="flex-shrink-0 w-32 md:w-48 h-12 relative grayscale opacity-30 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+            <div key={i} className="flex-shrink-0 w-32 md:w-48 h-12 relative transition-all duration-500">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 

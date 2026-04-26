@@ -2,9 +2,10 @@ export const services = [
   {
     id: "01",
     title: "Engineering",
-    description: "Planung, Entwicklung und Automatisierung von Maschinen und Anlagen.",
+    description: "Planung, Entwicklung und Automatisierung von Maschinen und Anlagen sowie Sistema-Berechnung für Sicherheitsnachweise.",
     category: "Engineering",
     image: "/Images/pexels-2157750954-34938429.jpg",
+    images: ["/Images/pexels-2157750954-34938429.jpg"]
   },
   {
     id: "02",
@@ -12,27 +13,45 @@ export const services = [
     description: "Sondermaschinenbau, Steuerungsbau sowie Modernisierung von Prozess- und Produktionsanlagen.",
     category: "PRODUCTION",
     image: "/Images/sonder.jpg",
+    images: ["/Images/sonder.jpg", "/Images/flaschen.png", "/Images/flaschen2.png", "/Images/wanne.png"],
+    tags: ["Automatisierung", "Anlagenbau", "Steuerungstechnik", "Touch-Screen", "Rezepturverwaltung", "SPS"],
+    memberOf: { name: "BUNDESVERBAND MILCHDIREKTVERMARKTER UND VORZUGSMILCHERZEUGER", url: "https://milch-und-mehr.de/" }
   },
   {
     id: "03",
-    title: "DGUV V3 Prüfung & Sistema-Berechnung",
-    description: "Gesetzlich vorgeschriebene regelmäßige Überprüfung von elektrischen Betriebsmitteln und Anlagen nach VDE.",
+    title: "VDE Prüfung",
+    description: "Gesetzlich vorgeschriebene Prüfung elektrischer Betriebsmittel und Anlagen nach VDE.",
     category: "SAFETY",
-    image: "/Images/dguv.jpg",
+    image: "/Images/dguv1.jpeg",
+    images: ["/Images/dguv1.jpeg"],
+    checkPoints: [
+      "gemäß der EN60204:2010-05 / DIN VDE 0100-600:2008-06 / DIN VDE 0105-100:2009-10",
+      "Sichtprüfung",
+      "Durchgängigkeit des Schutzleiters",
+      "Isolationswiderstandsmessung",
+      "RCD-Prüfung",
+      "Schleifenimpedanz",
+      "Netzinnenwiderstand",
+      "Funktionsprüfung"
+    ]
   },
   {
     id: "04",
     title: "Schaltschrank-Bau",
     description: "Professioneller Schaltschrank-Bau nach höchsten Qualitätsstandards.",
     category: "PRODUCTION",
-    image: "/Images/schaltbau.png",
+    image: "/Images/schalt1.jpeg",
+    images: ["/Images/schalt1.jpeg", "/Images/schalt2.jpeg", "/Images/schalt3.jpeg", "/Images/schaltschrankplan.png", "/Images/schalt1.png", "/Images/schalt2.jpg"],
+    tags: ["Schaltschrankbau", "Planung", "Elektrotechnik", "Normgerecht", "Schlüsselfertig"]
   },
   {
     id: "05",
     title: "Erneuerbare Energien",
     description: "Komplexe maßgeschneiderte Anlagen für nachhaltige Energielösungen.",
     category: "ENERGY",
-    image: "/Images/elektro.jpg",
+    image: "/Images/erneuerbar.jpg",
+    images: ["/Images/erneuerbar.jpg", "/Images/erneuerbare_Energie.png", "/Images/enereuerbare_energie2.png"],
+    tags: ["Dienstwagen Wallbox", "Fronius", "Automatische Notstromabschaltung", "ENWITEC", ">135KWp", "Photovoltaik"]
   },
   {
     id: "06",
@@ -40,40 +59,11 @@ export const services = [
     description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen.",
     category: "SERVICE",
     image: "/Images/montage.png",
+    images: ["/Images/montage.png"]
   }
 ];
 
 export const projects = [
-  {
-    title: "Flaschenwaschanlage & Etikettenlöser",
-    client: "Getränkeindustrie",
-    year: "2023",
-    description: "Vollautomatische Flaschenwaschanlage mit integriertem Etikettenlöser für die Getränkeindustrie. Moderne Steuerungstechnik sorgt für maximale Effizienz und Ressourcenschonung im laufenden Betrieb.",
-    detailDescription: "Die Implementierung dieser hochmodernen Anlage erfolgte in enger Zusammenarbeit mit dem Produktionsteam. Durch intelligente Sensorik und präzise Steuerungsalgorithmen konnte der Wasserverbrauch um 30% reduziert werden, während gleichzeitig die Reinigungsqualität deutlich verbessert wurde.",
-    tags: ["Automatisierung", "Anlagenbau", "Steuerungstechnik"],
-    image: "/Images/flaschen.png",
-    images: ["/Images/flaschen.png", "/Images/flaschen2.png"]
-  },
-  {
-    title: "Wannenpasteur",
-    client: "Lebensmittelproduktion",
-    year: "2023",
-    description: "Touch-Screen-Steuerung mit Rezepturverwaltung für Ihre Produkte. Individuelle Pasteurisierungsprogramme gewährleisten höchste Produktqualität bei optimaler Energieeffizienz.",
-    detailDescription: "Das System wurde mit einer intuitiven Benutzeroberfläche ausgestattet, die es dem Bedienpersonal ermöglicht, verschiedene Produktrezepturen zu verwalten und anzupassen. Die präzise Temperaturregelung garantiert konstante Produktqualität bei minimalem Energieeinsatz.",
-    tags: ["Touch-Screen", "Rezepturverwaltung", "SPS"],
-    image: "/Images/wanne.png",
-    images: ["/Images/wanne.png"]
-  },
-  {
-    title: "Schaltschrankplanung & -bau",
-    client: "Industriekunden",
-    year: "2024",
-    description: "Professionelle Planung und Fertigung von Schaltschränken nach neuesten Normen und Standards. Von der Konzeption bis zur schlüsselfertigen Übergabe aus einer Hand.",
-    detailDescription: "Jeder Schaltschrank wird nach individuellen Kundenanforderungen geplant und gefertigt. Dabei legen wir besonderen Wert auf übersichtliche Verdrahtung, optimale Kühlungskonzepte und einfache Wartbarkeit. Alle Komponenten werden sorgfältig ausgewählt und dokumentiert.",
-    tags: ["Schaltschrankbau", "Planung", "Elektrotechnik"],
-    image: "/Images/schaltschrankplan.png",
-    images: ["/Images/schaltschrankplan.png", "/Images/schalt1.png", "/Images/schalt2.jpg"]
-  },
   {
     title: "Hof Fuhlreit",
     client: "Direktvermarkter",
@@ -125,14 +115,15 @@ export const feedback = [
 ];
 
 export const partners = [
-  { name: "Partner 1", logo: "/Images/f1.png" },
+  { name: "Partner 1", logo: "/Images/f1.jpg" },
+  { name: "Zipfelmilch", logo: "/Images/Zipfelmilch_Logo1.png" },
   { name: "Partner 2", logo: "/Images/f2.png" },
-  { name: "Partner 3", logo: "/Images/f3.avif" },
   { name: "Partner 4", logo: "/Images/f4.png" },
   { name: "Partner 5", logo: "/Images/f5.png" },
   { name: "Partner 6", logo: "/Images/f6.png" },
   { name: "Partner 7", logo: "/Images/f7.png" },
   { name: "Partner 8", logo: "/Images/f8.png" },
   { name: "Partner 9", logo: "/Images/f9.jpg" },
-  { name: "Partner 10", logo: "/Images/f10.png" }
+  { name: "Partner 10", logo: "/Images/f10.png" },
+  { name: "Nestlé Purina", logo: "/Images/Nestle_Purina_Logo.jpg" }
 ];

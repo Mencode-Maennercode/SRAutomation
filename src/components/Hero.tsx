@@ -36,8 +36,8 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Cinematic Background Footage with subtle animation */}
       <motion.div 
-        animate={{ scale: [1, 1.02, 1] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ scale: [1, 1.035, 1] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0 z-0"
       >
         <img 
@@ -96,9 +96,9 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#leistungen">
+              <a href="#kontakt">
                 <Button size="lg" className="px-8 h-14 text-base gap-2 group">
-                  {t.hero.btn1}
+                  Projekt anfragen
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>

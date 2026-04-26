@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -49,8 +49,9 @@ export default function Navbar() {
           </a>
         ))}
         <a href="#kontakt">
-          <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/5">
+          <Button size="sm" className="px-6 h-9 text-sm gap-2 group">
             {t.nav.contact}
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </Button>
         </a>
         <button
@@ -90,7 +91,10 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#kontakt" onClick={() => setIsOpen(false)}>
-            <Button className="w-full">{t.nav.contact}</Button>
+            <Button className="w-full gap-2 group">
+              {t.nav.contact}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </a>
         </motion.div>
       )}

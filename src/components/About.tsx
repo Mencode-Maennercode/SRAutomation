@@ -23,9 +23,8 @@ export default function About() {
               {t.about.title}
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                {t.about.p1} <strong className="text-white">Srimugunthan Ratnasingam</strong>, {t.about.p1b}
-              </p>
+              <p>{t.about.p1}</p>
+              <p>{t.about.p1b}</p>
               <p>{t.about.p2}</p>
               <p>{t.about.p3}</p>
             </div>

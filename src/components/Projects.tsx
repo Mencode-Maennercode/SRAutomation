@@ -1,36 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import { useLanguage } from "@/lib/LanguageContext";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 function ImageCarousel({ images, title, imagePositions }: { images: string[]; title: string; imagePositions?: string[] }) {
   const [current, setCurrent] = useState(0);
   const pos = imagePositions?.[current] ?? "center center";
   if (!images || images.length <= 1) {
     return (
-      <div className="aspect-video rounded-lg overflow-hidden linear-border mb-8">
-        <img src={images?.[0]} alt={title} className="w-full h-full object-cover" style={{ objectPosition: imagePositions?.[0] ?? "center center" }} />
+      <div className="rounded-lg overflow-hidden mb-8 bg-black/20">
+        <img src={images?.[0]} alt={title} className="w-full h-auto max-h-[60vh] object-contain mx-auto block" />
       </div>
     );
   }
   return (
-    <div className="relative aspect-video rounded-lg overflow-hidden linear-border mb-8 group">
+    <div className="relative rounded-lg overflow-hidden mb-8 bg-black/20 group">
       <img
         src={images[current]}
         alt={`${title} ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
-        style={{ objectPosition: pos }}
+        className="w-full h-auto max-h-[60vh] object-contain mx-auto block transition-opacity duration-300"
       />
       <button
         onClick={() => setCurrent((c) => (c - 1 + images.length) % images.length)}
@@ -59,6 +51,12 @@ function ImageCarousel({ images, title, imagePositions }: { images: string[]; ti
 
 export default function Projects() {
   const { t } = useLanguage();
+  const [selected, setSelected] = useState<number | null>(null);
+
+  const sel = selected !== null ? projects[selected] : null;
+  const selT = selected !== null ? t.projects.items[selected] : null;
+  const selImages = sel ? (sel.images && sel.images.length > 0 ? sel.images : [sel.image]) : [];
+
   return (
     <section id="projekte" className="py-24 bg-black/10 relative">
       <div className="container mx-auto px-6">
@@ -76,85 +74,96 @@ export default function Projects() {
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
                 className="group relative"
               >
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="aspect-[16/10] overflow-hidden rounded-lg linear-border glass cursor-pointer">
-                      <img
-                        src={images[0]}
-                        alt={tProject?.title ?? project.title}
-                        className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                      />
-
-                      <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background via-background/20 to-transparent opacity-90">
-                        <div className="flex justify-between items-start mb-4">
-                          <div>
-                            <span className="technical-label text-primary/80">{tProject?.client ?? project.client} / {project.year}</span>
-                            <h3 className="text-3xl font-bold mt-1 group-hover:text-primary transition-colors">{tProject?.title ?? project.title}</h3>
-                          </div>
-                        </div>
-
-                        <p className="text-muted-foreground max-w-md mb-6 line-clamp-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                          {tProject?.description ?? project.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2">
-                          {(tProject?.tags ?? project.tags).map(tag => (
-                            <Badge key={tag} variant="outline" className="bg-white/5 border-white/10 font-mono text-[10px]">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-12 h-12 glass rounded-full flex items-center justify-center">
-                          <ArrowRight className="w-6 h-6 text-white" />
-                        </div>
-                      </div>
+                <motion.div
+                  layoutId={`project-card-${index}`}
+                  className="aspect-[16/10] overflow-hidden rounded-lg linear-border cursor-pointer"
+                  style={{ opacity: selected === index ? 0 : 1, transition: "opacity 0.15s" }}
+                  onClick={() => setSelected(index)}
+                >
+                  <img
+                    src={images[0]}
+                    alt={tProject?.title ?? project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background via-background/40 to-transparent">
+                    <div className="mb-4">
+                      <h3 className="text-3xl font-bold mt-1 group-hover:text-primary transition-colors">{tProject?.title ?? project.title}</h3>
                     </div>
-                  </DialogTrigger>
-                  <DialogContent className="glass-dark border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hidden">
-                    <DialogHeader>
-                      <div className="flex items-center justify-between">
-                        <span className="technical-label text-primary">{tProject?.client ?? project.client} | {project.year}</span>
-                      </div>
-                      <DialogTitle className="text-4xl font-bold tracking-tighter mt-2">{tProject?.title ?? project.title}</DialogTitle>
-                    </DialogHeader>
-                    <div className="mt-6">
-                      <ImageCarousel images={images} title={tProject?.title ?? project.title} imagePositions={(project as any).imagePositions} />
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="md:col-span-2">
-                          <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
-                          <p className="text-muted-foreground leading-relaxed text-lg">
-                            {tProject?.description ?? project.description} {tProject?.detail ?? project.detailDescription}
-                          </p>
-                        </div>
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="technical-label mb-2">{t.projects.techLabel}</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {(tProject?.tags ?? project.tags).map(tag => (
-                                <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
-                              ))}
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="technical-label mb-2">{t.projects.statusLabel}</h4>
-                            <Badge variant="outline" className="text-green-500 border-green-500/30 bg-green-500/5">{t.projects.statusValue}</Badge>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                      <ArrowRight className="w-6 h-6 text-white" />
                     </div>
-                  </DialogContent>
-                </Dialog>
+                  </div>
+                </motion.div>
               </motion.div>
             );
           })}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selected !== null && sel && selT && (
+          <>
+            <motion.div
+              className="fixed inset-0 bg-black/80 z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelected(null)}
+            />
+            <div className="fixed inset-0 z-50 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-6 md:p-10">
+                <motion.div
+                  layoutId={`project-card-${selected}`}
+                  className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setSelected(null)}
+                    className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                  <div className="p-8 pt-14">
+                    <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
+                    <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
+                    <div className="mb-8">
+                      <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
+                      <p className="text-muted-foreground leading-relaxed text-lg">
+                        {selT.description} {selT.detail}
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      <div className="md:col-span-2">
+                        <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
+                      </div>
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="technical-label mb-2">{t.projects.techLabel}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {selT.tags.map(tag => (
+                              <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="technical-label mb-2">{t.projects.statusLabel}</h4>
+                          <Badge variant="outline" className="text-green-500 border-green-500/30 bg-green-500/5">{t.projects.statusValue}</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
