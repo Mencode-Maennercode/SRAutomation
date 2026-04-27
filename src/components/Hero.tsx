@@ -123,7 +123,7 @@ export default function Hero() {
                 className="flex flex-col items-center"
               >
                 <span className="text-2xl font-bold font-mono text-white">
-                  {stat.value === "0" ? "Weltweit" : (
+                  {stat.value === "0" ? (t.hero.label.includes("Est.") ? "Worldwide" : "Weltweit") : (
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   )}
                 </span>
