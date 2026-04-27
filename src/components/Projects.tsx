@@ -118,6 +118,13 @@ export default function Projects() {
             transition={{ duration: 0.2 }}
             onClick={() => setSelected(null)}
           >
+            <button
+              onClick={() => setSelected(null)}
+              aria-label="Schließen"
+              className="fixed top-4 right-4 md:top-6 md:right-6 z-50 w-11 h-11 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
             <div className="flex min-h-full items-center justify-center p-6 md:p-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -127,13 +134,7 @@ export default function Projects() {
                 className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="p-8 pt-14">
+                <div className="p-8 pt-10">
                   <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
                   <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
                   <div className="mb-8">

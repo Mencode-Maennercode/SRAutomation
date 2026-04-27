@@ -132,6 +132,13 @@ export default function Services() {
             transition={{ duration: 0.2 }}
             onClick={() => setSelected(null)}
           >
+            <button
+              onClick={() => setSelected(null)}
+              aria-label="Schließen"
+              className="fixed top-4 right-4 md:top-6 md:right-6 z-50 w-11 h-11 glass rounded-full flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
             <div className="flex min-h-full items-center justify-center p-6 md:p-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -141,13 +148,7 @@ export default function Services() {
                 className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="p-8 pt-14">
+                <div className="p-8 pt-10">
                   <span className="technical-label text-primary">{sel.category} | {sel.id}</span>
                   <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
                   <div className="mb-8">
@@ -155,9 +156,9 @@ export default function Services() {
                     <p className="text-muted-foreground leading-relaxed text-lg">
                       {selT.description} {t.services.dialogExtra}
                     </p>
-                    {(sel as any).checkPoints && (
+                    {((selT as any).checkPoints || (sel as any).checkPoints) && (
                       <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
-                        {(sel as any).checkPoints.map((point: string, i: number) => (
+                        {((selT as any).checkPoints || (sel as any).checkPoints).map((point: string, i: number) => (
                           <li key={i} className={`flex items-start gap-2 text-sm ${i === 0 ? "text-primary/80 font-mono" : "text-muted-foreground"}`}>
                             <span className="text-primary mt-0.5 flex-shrink-0">{i === 0 ? "" : "•"}</span>
                             <span>{point}</span>
@@ -171,24 +172,26 @@ export default function Services() {
                       <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
                     </div>
                     <div className="space-y-6">
-                      <div>
-                        <h4 className="technical-label mb-2">STICHWORTE</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {((sel as any).tags || t.services.bulletPoints).map((item: string) => (
-                            <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
-                          ))}
+                      {(((selT as any).tags) || ((sel as any).tags) || t.services.bulletPoints) && (
+                        <div>
+                          <h4 className="technical-label mb-2">{(t.services as any).tagsLabel ?? "STICHWORTE"}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {(((selT as any).tags) || ((sel as any).tags) || t.services.bulletPoints).map((item: string) => (
+                              <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                       {(sel as any).memberOf && (
                         <div>
-                          <h4 className="technical-label mb-2">MITGLIED BEI</h4>
+                          <h4 className="technical-label mb-2">{(t.services as any).memberOfLabel ?? "MITGLIED BEI"}</h4>
                           <a
                             href={(sel as any).memberOf.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm text-primary hover:text-primary/80 underline underline-offset-4 transition-colors leading-relaxed block"
                           >
-                            {(sel as any).memberOf.name}
+                            {((selT as any).memberOf) || (sel as any).memberOf.name}
                           </a>
                         </div>
                       )}

@@ -100,7 +100,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="#kontakt">
                 <Button size="lg" className="px-8 h-14 text-base gap-2 group">
-                  Projekt anfragen
+                  {t.hero.btnPrimary}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
