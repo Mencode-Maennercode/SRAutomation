@@ -135,26 +135,25 @@ export default function Projects() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="p-8 pt-10">
-                  <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
-                  <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
-                  <div className="mb-8">
-                    <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
-                      {selT.description} {selT.detail}
-                    </p>
+                  <div className="mb-6">
+                    <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
+                    <h2 className="text-4xl font-bold tracking-tighter mt-2">{selT.title}</h2>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2">
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {selT.tags.map(tag => (
+                      <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
                       <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <h4 className="technical-label mb-2">{t.projects.techLabel}</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {selT.tags.map(tag => (
-                            <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
-                          ))}
-                        </div>
+                        <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
+                        <p className="text-muted-foreground leading-relaxed text-lg">
+                          {selT.description} {selT.detail}
+                        </p>
                       </div>
                       <div>
                         <h4 className="technical-label mb-2">{t.projects.statusLabel}</h4>

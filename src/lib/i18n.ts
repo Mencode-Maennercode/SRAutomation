@@ -31,12 +31,86 @@ export const translations = {
       memberOfLabel: "MITGLIED BEI",
       bulletPoints: ["Moderne Steuerungskonzepte", "Termingerechte Ausführung", "Fachmännische Beratung"],
       items: [
-        { title: "Engineering", description: "Konzeption und Planung von Automatisierungslösungen. Entwicklung von Steuerungskonzepten inklusive Sistema-Berechnung für Sicherheitsnachweise nach EN ISO 13849.", tags: ["Sistema-Berechnung", "EN ISO 13849", "SPS-Planung", "Prozess-Engineering", "Sicherheitsnachweis"] },
-        { title: "Sondermaschinenbau & Steuerungsbau", description: "Realisierung und Modernisierung von Sondermaschinen und Produktionsanlagen. Fertigung von Steuerungsschränken und Inbetriebnahme komplexer Anlagen. Referenzprojekte: Vollautomatische Flaschenwaschanlage & Etikettenlöser sowie Wannenpasteur mit Touch-Screen-Steuerung und Rezepturverwaltung für die Lebensmittel- und Getränkeindustrie.", tags: ["Automatisierung", "Anlagenbau", "Steuerungstechnik", "Touch-Screen", "Rezepturverwaltung", "SPS"], memberOf: "BUNDESVERBAND MILCHDIREKTVERMARKTER UND VORZUGSMILCHERZEUGER" },
-        { title: "VDE Prüfung", description: "Gesetzlich vorgeschriebene Prüfung elektrischer Betriebsmittel und Anlagen. Je nach Art und Umfang werden verschiedene Prüfungen und Messungen durchgeführt.", checkPoints: ["gemäß der EN60204:2010-05 / DIN VDE 0100-600:2008-06 / DIN VDE 0105-100:2009-10", "Sichtprüfung", "Durchgängigkeit des Schutzleiters", "Isolationswiderstandsmessung", "RCD-Prüfung", "Schleifenimpedanz", "Netzinnenwiderstand", "Funktionsprüfung"] },
-        { title: "Schaltschrank-Bau", description: "Professionelle Fertigung von Schaltschränken nach neuesten Normen und Standards. Von der Konzeption bis zur schlüsselfertigen Übergabe aus einer Hand – für Industrie und Gewerbe.", tags: ["Schaltschrankbau", "Planung", "Elektrotechnik", "Normgerecht", "Schlüsselfertig"] },
-        { title: "Erneuerbare Energien", description: "Planung und Umsetzung von Photovoltaik-Anlagen und Energiespeichersystemen für nachhaltige Energielösungen.", tags: ["Dienstwagen Wallbox", "Fronius", "Automatische Notstromabschaltung", "ENWITEC", ">135 kWp", "Photovoltaik"] },
-        { title: "Montage & Inbetriebnahme", description: "Montage, Inbetriebnahme und Reparatur von Maschinen und Prozessanlagen." },
+        { 
+          title: "Engineering", 
+          description: "Strategische Planung und Konzeption von Automatisierungslösungen.",
+          checkPoints: [
+            "Ausarbeitung eigener Strategien und Lösungsansätze",
+            "Unterstützung bei Gefährdungsanalyse/Risikominderung",
+            "Planung des Projektablaufes",
+            "Koordination der unterschiedlichen Gewerke",
+            "Sistema-Berechnung für Sicherheitsnachweise nach EN ISO 13849",
+            "Überwachung der Montagearbeiten"
+          ],
+          tags: ["Engineering", "Risikoanalyse", "Projektplanung", "Sistema", "EN ISO 13849"] 
+        },
+        { 
+          title: "Sondermaschinenbau & Steuerungsbau", 
+          description: "Realisierung und Modernisierung von Sondermaschinen und Produktionsanlagen.",
+          checkPoints: [
+            "Entwicklung und Fertigung kundenspezifischer Maschinen",
+            "Modernisierung bestehender Produktionsanlagen",
+            "Integration sicherheitstechnischer Einrichtungen",
+            "Implementierung von Bedien- und Visualisierungssystemen",
+            "Touch-Screen-Steuerungen mit Rezepturverwaltung",
+            "Inbetriebnahme und Prozessoptimierung"
+          ],
+          tags: ["Sondermaschinenbau", "Anlagenbau", "Steuerungstechnik", "Touch-Screen", "Rezepturverwaltung", "Automatisierung"], 
+          memberOf: "BUNDESVERBAND MILCHDIREKTVERMARKTER UND VORZUGSMILCHERZEUGER" 
+        },
+        { 
+          title: "VDE Prüfung", 
+          description: "Gesetzlich vorgeschriebene Prüfung elektrischer Betriebsmittel und Anlagen.",
+          checkPoints: [
+            "Prüfung nach DGUV Vorschrift 3",
+            "Messung gemäß EN60204:2010-05",
+            "Sichtprüfung und Funktionsprüfung",
+            "Durchgängigkeit des Schutzleiters",
+            "Isolationswiderstandsmessung",
+            "RCD-Prüfung und Schleifenimpedanzmessung",
+            "Vollständige Dokumentation der Prüfung"
+          ],
+          tags: ["VDE Prüfung", "DGUV V3", "EN60204", "Sicherheitsprüfung", "Normgerecht"] 
+        },
+        { 
+          title: "Schaltschrank-Bau", 
+          description: "Professionelle Fertigung von Schaltschränken nach neuesten Normen und Standards.",
+          checkPoints: [
+            "Sicherheitsschaltungen nach EN ISO 13849-1",
+            "Antriebstechnik für Asynchron- und Servomotoren",
+            "Bussysteme: PROFIBUS, PROFINET, EtherCAT, Ethernet",
+            "Normgerechte Verdrahtung und Kennzeichnung",
+            "Integration von Steuerungs- und Visualisierungssystemen",
+            "Schlüsselfertige Übergabe aus einer Hand"
+          ],
+          tags: ["Schaltschrankbau", "Antriebstechnik", "Bussysteme", "Normgerecht", "Schlüsselfertig"] 
+        },
+        { 
+          title: "Erneuerbare Energien", 
+          description: "Planung und Umsetzung von nachhaltigen Energielösungen.",
+          checkPoints: [
+            "Planung und Dimensionierung von Photovoltaik-Anlagen",
+            "Installation von Energiespeichersystemen",
+            "Automatische Notstromabschaltungen",
+            "Wallbox-Installationen für Elektromobilität",
+            "Netzintegration und Einspeisemanagement",
+            "Wartung und Service von Solaranlagen"
+          ],
+          tags: ["Photovoltaik", "Energiespeicher", "Wallbox", "Notstrom", "ENWITEC", "Fronius"] 
+        },
+        { 
+          title: "Montage & Inbetriebnahme", 
+          description: "Fachgerechte Montage, Inbetriebnahme und Wartung technischer Anlagen.",
+          checkPoints: [
+            "Montage von Maschinen und Prozessanlagen",
+            "Inbetriebnahme komplexer Automatisierungssysteme",
+            "Fehleranalyse und Troubleshooting",
+            "Wartung und Instandhaltung",
+            "Schulung von Bedienpersonal",
+            "Optimierung bestehender Anlagen"
+          ],
+          tags: ["Montage", "Inbetriebnahme", "Wartung", "Service", "Optimierung"] 
+        },
       ],
     },
     projects: {
@@ -243,12 +317,86 @@ export const translations = {
       memberOfLabel: "MEMBER OF",
       bulletPoints: ["Modern control concepts", "On-time delivery", "Expert consulting"],
       items: [
-        { title: "Engineering", description: "Conception and planning of automation solutions. Development of control concepts including Sistema calculation for safety verification according to EN ISO 13849.", tags: ["Sistema Calculation", "EN ISO 13849", "PLC Planning", "Process Engineering", "Safety Verification"] },
-        { title: "Special Machine & Control Engineering", description: "Realization and modernization of special machines and production plants. Manufacturing of control cabinets and commissioning of complex systems. Reference projects: Fully automated bottle washing system & label remover as well as trough pasteurizer with touch-screen control and recipe management for the food and beverage industry.", tags: ["Automation", "Plant Engineering", "Control Technology", "Touch-Screen", "Recipe Management", "PLC"], memberOf: "GERMAN ASSOCIATION OF DIRECT MILK MARKETERS AND PREMIUM MILK PRODUCERS" },
-        { title: "VDE Inspection", description: "Legally required inspection of electrical equipment and systems according to VDE. Various tests and measurements are carried out depending on type and scope.", checkPoints: ["according to EN 60204:2010-05 / DIN VDE 0100-600:2008-06 / DIN VDE 0105-100:2009-10", "Visual inspection", "Continuity of the protective conductor", "Insulation resistance measurement", "RCD test", "Loop impedance", "Source impedance", "Functional test"] },
-        { title: "Control Cabinet Construction", description: "Professional manufacturing of control cabinets according to the latest standards and norms. Everything from concept to turnkey handover from a single source – for industry and commerce.", tags: ["Control Cabinet", "Planning", "Electrical Engineering", "Standard-compliant", "Turnkey"] },
-        { title: "Renewable Energies", description: "Planning and implementation of photovoltaic systems and energy storage systems for sustainable energy solutions.", tags: ["Company Car Wallbox", "Fronius", "Automatic Emergency Shutdown", "ENWITEC", ">135 kWp", "Photovoltaics"] },
-        { title: "Assembly & Commissioning", description: "Assembly, commissioning and repair of machines and process plants." },
+        { 
+          title: "Engineering", 
+          description: "Strategic planning and conception of automation solutions.",
+          checkPoints: [
+            "Development of own strategies and solution approaches",
+            "Support with hazard analysis/risk reduction",
+            "Project workflow planning",
+            "Coordination of different trades",
+            "Sistema calculation for safety verification according to EN ISO 13849",
+            "Supervision of installation work"
+          ],
+          tags: ["Engineering", "Risk Analysis", "Project Planning", "Sistema", "EN ISO 13849"] 
+        },
+        { 
+          title: "Special Machine & Control Engineering", 
+          description: "Realization and modernization of special machines and production plants.",
+          checkPoints: [
+            "Development and manufacturing of customer-specific machines",
+            "Modernization of existing production plants",
+            "Integration of safety technology systems",
+            "Implementation of operating and visualization systems",
+            "Touch-screen controls with recipe management",
+            "Commissioning and process optimization"
+          ],
+          tags: ["Special Machine Building", "Plant Engineering", "Control Technology", "Touch-Screen", "Recipe Management", "Automation"], 
+          memberOf: "GERMAN ASSOCIATION OF DIRECT MILK MARKETERS AND PREMIUM MILK PRODUCERS" 
+        },
+        { 
+          title: "VDE Inspection", 
+          description: "Legally required inspection of electrical equipment and systems according to VDE.",
+          checkPoints: [
+            "Inspection according to DGUV regulation 3",
+            "Measurement according to EN60204:2010-05",
+            "Visual inspection and functional testing",
+            "Continuity of the protective conductor",
+            "Insulation resistance measurement",
+            "RCD testing and loop impedance measurement",
+            "Complete documentation of the inspection"
+          ],
+          tags: ["VDE Inspection", "DGUV V3", "EN60204", "Safety Testing", "Standard-compliant"] 
+        },
+        { 
+          title: "Control Cabinet Construction", 
+          description: "Professional manufacturing of control cabinets according to the latest standards and norms.",
+          checkPoints: [
+            "Safety circuits according to EN ISO 13849-1",
+            "Drive technology for asynchronous and servo motors",
+            "Bus systems: PROFIBUS, PROFINET, EtherCAT, Ethernet",
+            "Standard-compliant wiring and labeling",
+            "Integration of control and visualization systems",
+            "Turnkey handover from a single source"
+          ],
+          tags: ["Control Cabinet", "Drive Technology", "Bus Systems", "Standard-compliant", "Turnkey"] 
+        },
+        { 
+          title: "Renewable Energies", 
+          description: "Planning and implementation of sustainable energy solutions.",
+          checkPoints: [
+            "Planning and dimensioning of photovoltaic systems",
+            "Installation of energy storage systems",
+            "Automatic emergency shutdown systems",
+            "Wallbox installations for electromobility",
+            "Grid integration and feed-in management",
+            "Maintenance and service of solar systems"
+          ],
+          tags: ["Photovoltaics", "Energy Storage", "Wallbox", "Emergency Power", "ENWITEC", "Fronius"] 
+        },
+        { 
+          title: "Assembly & Commissioning", 
+          description: "Professional assembly, commissioning and maintenance of technical systems.",
+          checkPoints: [
+            "Assembly of machines and process plants",
+            "Commissioning of complex automation systems",
+            "Fault analysis and troubleshooting",
+            "Maintenance and servicing",
+            "Training of operating personnel",
+            "Optimization of existing systems"
+          ],
+          tags: ["Assembly", "Commissioning", "Maintenance", "Service", "Optimization"] 
+        },
       ],
     },
     projects: {

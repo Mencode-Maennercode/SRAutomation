@@ -149,39 +149,36 @@ export default function Services() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="p-8 pt-10">
-                  <span className="technical-label text-primary">{sel.category} | {sel.id}</span>
-                  <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
-                  <div className="mb-8">
-                    <h4 className="technical-label mb-4">{t.services.label}</h4>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
-                      {selT.description} {t.services.dialogExtra}
-                    </p>
-                    {((selT as any).checkPoints || (sel as any).checkPoints) && (
-                      <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
-                        {((selT as any).checkPoints || (sel as any).checkPoints).map((point: string, i: number) => (
-                          <li key={i} className={`flex items-start gap-2 text-sm ${i === 0 ? "text-primary/80 font-mono" : "text-muted-foreground"}`}>
-                            <span className="text-primary mt-0.5 flex-shrink-0">{i === 0 ? "" : "•"}</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  <div className="mb-6">
+                    <span className="technical-label text-primary">{sel.category} | {sel.id}</span>
+                    <h2 className="text-4xl font-bold tracking-tighter mt-2">{selT.title}</h2>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2">
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {(((selT as any).tags) || ((sel as any).tags) || t.services.bulletPoints).map((item: string) => (
+                      <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
                       <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
                     </div>
                     <div className="space-y-6">
-                      {(((selT as any).tags) || ((sel as any).tags) || t.services.bulletPoints) && (
-                        <div>
-                          <h4 className="technical-label mb-2">{(t.services as any).tagsLabel ?? "STICHWORTE"}</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {(((selT as any).tags) || ((sel as any).tags) || t.services.bulletPoints).map((item: string) => (
-                              <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
+                      <div>
+                        <h4 className="technical-label mb-4">{t.services.label}</h4>
+                        <p className="text-muted-foreground leading-relaxed text-lg">
+                          {selT.description} {t.services.dialogExtra}
+                        </p>
+                        {((selT as any).checkPoints || (sel as any).checkPoints) && (
+                          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+                            {((selT as any).checkPoints || (sel as any).checkPoints).map((point: string, i: number) => (
+                              <li key={i} className={`flex items-start gap-2 text-sm ${i === 0 ? "text-primary/80 font-mono" : "text-muted-foreground"}`}>
+                                <span className="text-primary mt-0.5 flex-shrink-0">{i === 0 ? "" : "•"}</span>
+                                <span>{point}</span>
+                              </li>
                             ))}
-                          </div>
-                        </div>
-                      )}
+                          </ul>
+                        )}
+                      </div>
                       {(sel as any).memberOf && (
                         <div>
                           <h4 className="technical-label mb-2">{(t.services as any).memberOfLabel ?? "MITGLIED BEI"}</h4>
