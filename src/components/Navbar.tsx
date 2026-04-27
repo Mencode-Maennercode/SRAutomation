@@ -33,6 +33,9 @@ export default function Navbar() {
         <img 
           src="/Logo-rund.png" 
           alt="SR Automation" 
+          width={48}
+          height={48}
+          decoding="async"
           className="h-10 md:h-12 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl" 
         />
         <span className="text-white font-bold text-lg md:text-xl tracking-tight">SR Automation</span>

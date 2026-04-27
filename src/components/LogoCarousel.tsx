@@ -25,6 +25,8 @@ export default function LogoCarousel() {
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>

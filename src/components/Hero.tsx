@@ -43,8 +43,10 @@ export default function Hero() {
         <img 
           src="/Images/hero-background.jpeg" 
           alt="Technical Background" 
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover opacity-30 grayscale contrast-125"
-          style={{ backgroundColor: "#8C94A9" }}
+          style={{ backgroundColor: "#8C94A9", willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
       </motion.div>

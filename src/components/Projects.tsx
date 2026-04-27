@@ -13,7 +13,7 @@ function ImageCarousel({ images, title, imagePositions }: { images: string[]; ti
   if (!images || images.length <= 1) {
     return (
       <div className="rounded-lg overflow-hidden mb-8 bg-black/20">
-        <img src={images?.[0]} alt={title} className="w-full h-auto max-h-[60vh] object-contain mx-auto block" />
+        <img src={images?.[0]} alt={title} className="w-full h-auto max-h-[60vh] object-contain mx-auto block" loading="lazy" decoding="async" />
       </div>
     );
   }
@@ -23,6 +23,8 @@ function ImageCarousel({ images, title, imagePositions }: { images: string[]; ti
         src={images[current]}
         alt={`${title} ${current + 1}`}
         className="w-full h-auto max-h-[60vh] object-contain mx-auto block transition-opacity duration-300"
+        loading="lazy"
+        decoding="async"
       />
       <button
         onClick={() => setCurrent((c) => (c - 1 + images.length) % images.length)}
@@ -78,16 +80,16 @@ export default function Projects() {
                 transition={{ delay: index * 0.2 }}
                 className="group relative"
               >
-                <motion.div
-                  layoutId={`project-card-${index}`}
+                <div
                   className="aspect-[16/10] overflow-hidden rounded-lg linear-border cursor-pointer"
-                  style={{ opacity: selected === index ? 0 : 1, transition: "opacity 0.15s" }}
                   onClick={() => setSelected(index)}
                 >
                   <img
                     src={images[0]}
                     alt={tProject?.title ?? project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background via-background/40 to-transparent">
                     <div className="mb-4">
@@ -99,7 +101,7 @@ export default function Projects() {
                       <ArrowRight className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
@@ -108,60 +110,61 @@ export default function Projects() {
 
       <AnimatePresence>
         {selected !== null && sel && selT && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black/80 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelected(null)}
-            />
-            <div className="fixed inset-0 z-50 overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-6 md:p-10">
-                <motion.div
-                  layoutId={`project-card-${selected}`}
-                  className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
-                  onClick={(e) => e.stopPropagation()}
+          <motion.div
+            className="fixed inset-0 z-40 bg-black/80 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelected(null)}
+          >
+            <div className="flex min-h-full items-center justify-center p-6 md:p-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
                 >
-                  <button
-                    onClick={() => setSelected(null)}
-                    className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                  <div className="p-8 pt-14">
-                    <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
-                    <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
-                    <div className="mb-8">
-                      <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
-                      <p className="text-muted-foreground leading-relaxed text-lg">
-                        {selT.description} {selT.detail}
-                      </p>
+                  <X className="w-5 h-5" />
+                </button>
+                <div className="p-8 pt-14">
+                  <span className="technical-label text-primary">{selT.client} | {sel.year}</span>
+                  <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
+                  <div className="mb-8">
+                    <h4 className="technical-label mb-4">{t.projects.descLabel}</h4>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {selT.description} {selT.detail}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="md:col-span-2">
+                      <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="md:col-span-2">
-                        <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="technical-label mb-2">{t.projects.techLabel}</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {selT.tags.map(tag => (
+                            <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
+                          ))}
+                        </div>
                       </div>
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="technical-label mb-2">{t.projects.techLabel}</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {selT.tags.map(tag => (
-                              <Badge key={tag} className="bg-primary/20 text-primary border-primary/20">{tag}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="technical-label mb-2">{t.projects.statusLabel}</h4>
-                          <Badge variant="outline" className="text-green-500 border-green-500/30 bg-green-500/5">{t.projects.statusValue}</Badge>
-                        </div>
+                      <div>
+                        <h4 className="technical-label mb-2">{t.projects.statusLabel}</h4>
+                        <Badge variant="outline" className="text-green-500 border-green-500/30 bg-green-500/5">{t.projects.statusValue}</Badge>
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

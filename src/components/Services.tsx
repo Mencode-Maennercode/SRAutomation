@@ -13,7 +13,7 @@ function ImageCarousel({ images, title, imagePositions }: { images: string[]; ti
   if (!images || images.length <= 1) {
     return (
       <div className="rounded-lg overflow-hidden mb-8 bg-black/20">
-        <img src={images?.[0]} alt={title} className="w-full h-auto max-h-[60vh] object-contain mx-auto block" />
+        <img src={images?.[0]} alt={title} className="w-full h-auto max-h-[60vh] object-contain mx-auto block" loading="lazy" decoding="async" />
       </div>
     );
   }
@@ -23,6 +23,8 @@ function ImageCarousel({ images, title, imagePositions }: { images: string[]; ti
         src={images[current]}
         alt={`${title} ${current + 1}`}
         className="w-full h-auto max-h-[60vh] object-contain mx-auto block transition-opacity duration-300"
+        loading="lazy"
+        decoding="async"
       />
       <button
         onClick={() => setCurrent((c) => (c - 1 + images.length) % images.length)}
@@ -61,7 +63,7 @@ export default function Services() {
     <section id="leistungen" className="py-24 relative overflow-hidden">
       {/* Background Technical Illustration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
-        <img src="/Images/technical-circuitry.svg" alt="Technical Circuitry" className="w-full h-full invert" />
+        <img src="/Images/technical-circuitry.svg" alt="Technical Circuitry" className="w-full h-full invert" loading="lazy" decoding="async" />
       </div>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
@@ -91,16 +93,16 @@ export default function Services() {
                 transition={{ delay: index * 0.2 }}
                 className="group relative"
               >
-                <motion.div
-                  layoutId={`service-card-${service.id}`}
+                <div
                   className="aspect-[16/10] overflow-hidden rounded-lg linear-border cursor-pointer"
-                  style={{ opacity: selected === index ? 0 : 1, transition: "opacity 0.15s" }}
                   onClick={() => setSelected(index)}
                 >
                   <img
                     src={images[0]}
                     alt={tService?.title ?? service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background via-background/40 to-transparent">
                     <div className="mb-4">
@@ -113,7 +115,7 @@ export default function Services() {
                       <ArrowRight className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
@@ -122,79 +124,80 @@ export default function Services() {
 
       <AnimatePresence>
         {selected !== null && sel && selT && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black/80 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelected(null)}
-            />
-            <div className="fixed inset-0 z-50 overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-6 md:p-10">
-                <motion.div
-                  layoutId={`service-card-${sel.id}`}
-                  className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
-                  onClick={(e) => e.stopPropagation()}
+          <motion.div
+            className="fixed inset-0 z-40 bg-black/80 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelected(null)}
+          >
+            <div className="flex min-h-full items-center justify-center p-6 md:p-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="relative w-full max-w-5xl glass-dark rounded-2xl border border-white/10 text-white"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
                 >
-                  <button
-                    onClick={() => setSelected(null)}
-                    className="absolute top-4 right-4 z-10 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                  <div className="p-8 pt-14">
-                    <span className="technical-label text-primary">{sel.category} | {sel.id}</span>
-                    <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
-                    <div className="mb-8">
-                      <h4 className="technical-label mb-4">{t.services.label}</h4>
-                      <p className="text-muted-foreground leading-relaxed text-lg">
-                        {selT.description} {t.services.dialogExtra}
-                      </p>
-                      {(sel as any).checkPoints && (
-                        <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
-                          {(sel as any).checkPoints.map((point: string, i: number) => (
-                            <li key={i} className={`flex items-start gap-2 text-sm ${i === 0 ? "text-primary/80 font-mono" : "text-muted-foreground"}`}>
-                              <span className="text-primary mt-0.5 flex-shrink-0">{i === 0 ? "" : "•"}</span>
-                              <span>{point}</span>
-                            </li>
+                  <X className="w-5 h-5" />
+                </button>
+                <div className="p-8 pt-14">
+                  <span className="technical-label text-primary">{sel.category} | {sel.id}</span>
+                  <h2 className="text-4xl font-bold tracking-tighter mt-2 mb-6">{selT.title}</h2>
+                  <div className="mb-8">
+                    <h4 className="technical-label mb-4">{t.services.label}</h4>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {selT.description} {t.services.dialogExtra}
+                    </p>
+                    {(sel as any).checkPoints && (
+                      <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+                        {(sel as any).checkPoints.map((point: string, i: number) => (
+                          <li key={i} className={`flex items-start gap-2 text-sm ${i === 0 ? "text-primary/80 font-mono" : "text-muted-foreground"}`}>
+                            <span className="text-primary mt-0.5 flex-shrink-0">{i === 0 ? "" : "•"}</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="md:col-span-2">
+                      <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
+                    </div>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="technical-label mb-2">STICHWORTE</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {((sel as any).tags || t.services.bulletPoints).map((item: string) => (
+                            <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
                           ))}
-                        </ul>
+                        </div>
+                      </div>
+                      {(sel as any).memberOf && (
+                        <div>
+                          <h4 className="technical-label mb-2">MITGLIED BEI</h4>
+                          <a
+                            href={(sel as any).memberOf.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-primary hover:text-primary/80 underline underline-offset-4 transition-colors leading-relaxed block"
+                          >
+                            {(sel as any).memberOf.name}
+                          </a>
+                        </div>
                       )}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="md:col-span-2">
-                        <ImageCarousel images={selImages} title={selT.title} imagePositions={(sel as any).imagePositions} />
-                      </div>
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="technical-label mb-2">STICHWORTE</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {((sel as any).tags || t.services.bulletPoints).map((item: string) => (
-                              <Badge key={item} className="bg-primary/20 text-primary border-primary/20">{item}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                        {(sel as any).memberOf && (
-                          <div>
-                            <h4 className="technical-label mb-2">MITGLIED BEI</h4>
-                            <a
-                              href={(sel as any).memberOf.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-primary hover:text-primary/80 underline underline-offset-4 transition-colors leading-relaxed block"
-                            >
-                              {(sel as any).memberOf.name}
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    </div>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

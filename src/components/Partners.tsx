@@ -80,6 +80,8 @@ export default function Partners() {
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
+                      loading="lazy"
+                      decoding="async"
                       className={`w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity ${
                         partner.name === "Sistema Seminar" || partner.name === "IBC SOLAR"
                           ? "max-h-16" 

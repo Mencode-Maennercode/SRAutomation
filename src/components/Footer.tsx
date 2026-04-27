@@ -15,6 +15,8 @@ export default function Footer() {
               <img 
                 src="/SR_logo-1024x424.png" 
                 alt="SR Automation" 
+                loading="lazy"
+                decoding="async"
                 className="h-12 md:h-16 w-auto transition-all duration-500" 
               />
             </div>
